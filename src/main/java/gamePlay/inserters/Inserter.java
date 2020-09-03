@@ -20,6 +20,7 @@ public class Inserter {
         board = addCrossOrCircleToBoard(board, crossInsertPlace, 'X');
         return board;
     }
+
     int typeNumberToInsert (){
         Scanner scanner = new Scanner(System.in);
         int crossInsertPlace = scanner.nextInt() - 1;

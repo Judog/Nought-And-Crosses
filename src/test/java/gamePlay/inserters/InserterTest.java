@@ -18,12 +18,25 @@ public class InserterTest {
     }
 
     @Test
+    public void insertCirclesTest() {
+        char[] methodReturnArray = inserter.computerOpponentInsertingCircles(board);
+        int placeOfCircle = 0;
+        for (int placeOnBorder = 0; placeOnBorder < 9; placeOnBorder++) {
+            if (methodReturnArray[placeOnBorder] == 'O') {
+                placeOfCircle = placeOnBorder;
+            }
+        }
+        Assertions.assertEquals(methodReturnArray[placeOfCircle], 'O');
+    }
+
+    @Test
     public void shouldReturnBoardWithCrossOnEveryPlaceInBoard() {
 
         for (int boardPlace = 0; boardPlace < 9; boardPlace++) {
             shouldReturnBoardWithCrossWhenHaveBoardAndNumber(board, boardPlace);
         }
     }
+
     private void shouldReturnBoardWithCrossWhenHaveBoardAndNumber(char[] board, int arrayPlace) {
         char[] boardWithCross = inserter.addCrossOrCircleToBoard(board, arrayPlace, 'X');
         Assertions.assertEquals(boardWithCross[arrayPlace], 'X');

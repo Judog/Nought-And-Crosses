@@ -19,22 +19,37 @@ public class GamePlay {
 
     public void winRequirementsCheck() {
         Inserter inserter = new Inserter();
+        int turnCounter = 0;
         while (!winOrLoseGameCondition) {
             boardGame = inserter.insertCrosses(boardGame);
+            winOrLoseGameCondition = multipleConditionsCheck();
+            turnCounter++;
+            if (turnCounter == 9) break;
             boardGame = inserter.computerOpponentInsertingCircles(boardGame);
             winOrLoseGameCondition = multipleConditionsCheck();
+            turnCounter++;
         }
         System.out.println("Game Over");
     }
+
 
     boolean conditionsCheck(int positionOneOfBoard, int positionTwoOfBoard, int positionThreeOfBoard) {
         boolean conditionChecker;
         if (boardGame[positionOneOfBoard] == boardGame[positionTwoOfBoard] && boardGame[positionTwoOfBoard] == boardGame[positionThreeOfBoard]) {
             conditionChecker = true;
+            checkAWinner(positionOneOfBoard, positionTwoOfBoard, positionThreeOfBoard);
         } else {
             conditionChecker = false;
         }
         return conditionChecker;
+    }
+
+    void checkAWinner(int positionOneOfBoard, int positionTwoOfBoard, int positionThreeOfBoard) {
+        if (boardGame[positionOneOfBoard] == 'X' && boardGame[positionTwoOfBoard] == 'X' && boardGame[positionThreeOfBoard] == 'X') {
+            System.out.println("You win");
+        } else {
+            System.out.println("You Lose");
+        }
     }
 
     boolean multipleConditionsCheck() {
@@ -57,4 +72,5 @@ public class GamePlay {
         }
         return multipleConditionChecker;
     }
+
 }

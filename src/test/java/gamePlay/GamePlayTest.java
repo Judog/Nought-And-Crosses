@@ -176,5 +176,9 @@ public class GamePlayTest {
         boolean methodAssertion = gamePlay.conditionsCheck(2, 4, 6);
         Assertions.assertFalse(methodAssertion);
     }
-
+@Test
+    public void whenWinnerCheckIsMockedItMustRun(){
+        mockedGamePlay.checkAWinner(1,2,3);
+        Mockito.verify(mockedGamePlay).checkAWinner(1,2,3);
+}
 }

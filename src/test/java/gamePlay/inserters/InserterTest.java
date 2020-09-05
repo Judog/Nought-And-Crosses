@@ -18,7 +18,7 @@ public class InserterTest {
     }
 
     @Test
-    public void insertCirclesTest() {
+    public void shouldAssertWhenMethodInsertsCircle() {
         char[] methodReturnArray = inserter.computerOpponentInsertingCircles(board);
         int placeOfCircle = 0;
         for (int placeOnBorder = 0; placeOnBorder < 9; placeOnBorder++) {

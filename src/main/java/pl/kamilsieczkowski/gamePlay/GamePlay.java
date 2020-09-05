@@ -1,7 +1,7 @@
-package gamePlay;
+package pl.kamilsieczkowski.gamePlay;
 
-import gameBoard.GameBoard;
-import gamePlay.inserters.Inserter;
+import pl.kamilsieczkowski.gameBoard.GameBoard;
+import pl.kamilsieczkowski.gamePlay.inserters.Inserter;
 
 public class GamePlay {
     private char[] boardGame;

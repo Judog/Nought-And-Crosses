@@ -1,4 +1,4 @@
-package gameBoard;
+package pl.kamilsieczkowski.gameBoard;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;

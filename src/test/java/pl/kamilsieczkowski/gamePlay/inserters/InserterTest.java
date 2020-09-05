@@ -1,4 +1,4 @@
-package gamePlay.inserters;
+package pl.kamilsieczkowski.gamePlay.inserters;
 
 import org.junit.jupiter.api.*;
 import org.mockito.Mockito;

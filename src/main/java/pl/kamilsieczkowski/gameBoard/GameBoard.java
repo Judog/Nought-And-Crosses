@@ -1,4 +1,4 @@
-package gameBoard;
+package pl.kamilsieczkowski.gameBoard;
 
 public class GameBoard {
     char[] board;

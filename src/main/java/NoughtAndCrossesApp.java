@@ -1,6 +1,6 @@
 
-import gameBoard.GameBoard;
-import gamePlay.GamePlay;
+import pl.kamilsieczkowski.gameBoard.GameBoard;
+import pl.kamilsieczkowski.gamePlay.GamePlay;
 
 
 public class NoughtAndCrossesApp {

@@ -1,4 +1,4 @@
-package utils;
+package pl.kamilsieczkowski.utils;
 
 public class Characters {
     public final static char CROSS = 'X';

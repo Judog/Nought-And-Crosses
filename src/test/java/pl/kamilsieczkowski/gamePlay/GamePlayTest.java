@@ -1,4 +1,4 @@
-package gamePlay;
+package pl.kamilsieczkowski.gamePlay;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;

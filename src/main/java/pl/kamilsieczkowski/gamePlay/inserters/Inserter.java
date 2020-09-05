@@ -1,6 +1,6 @@
-package gamePlay.inserters;
+package pl.kamilsieczkowski.gamePlay.inserters;
 
-import gameBoard.GameBoard;
+import pl.kamilsieczkowski.gameBoard.GameBoard;
 
 import java.util.Random;
 import java.util.Scanner;

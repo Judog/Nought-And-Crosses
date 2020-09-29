@@ -1,4 +1,4 @@
-package pl.kamilsieczkowski.gameBoard;
+package pl.kamilsieczkowski.game;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -8,18 +8,18 @@ import org.mockito.Mockito;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class GameBoardTest {
-    private static GameBoard gameBoard;
+public class BoardTest {
+    private static Board board;
     private static char[] givenBoard;
     @Mock
-    private static GameBoard mockedGameBoard;
+    private static Board mockedBoard;
     char[] boardForGame;
 
     @BeforeAll
     public static void setUp() {
-        gameBoard = new GameBoard();
-        givenBoard = gameBoard.setBoard();
-        mockedGameBoard = Mockito.mock(GameBoard.class);
+        board = new Board();
+        givenBoard = board.setStartBoard();
+        mockedBoard = Mockito.mock(Board.class);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class GameBoardTest {
     @Test
     public void shouldDisplayBoard() {
         boardForGame = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
-        mockedGameBoard.displayBoard(boardForGame);
-        Mockito.verify(mockedGameBoard, Mockito.times(1)).displayBoard(boardForGame);
+        mockedBoard.displayBoard(boardForGame);
+        Mockito.verify(mockedBoard, Mockito.times(1)).displayBoard(boardForGame);
     }
 }

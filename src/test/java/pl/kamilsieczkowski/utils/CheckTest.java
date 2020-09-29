@@ -1,4 +1,4 @@
-package pl.kamilsieczkowski.gamePlay;
+package pl.kamilsieczkowski.utils;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -6,8 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-
-public class GamePlayTest {
+public class CheckTest {
     private char[] firstRowX;
     private char[] secondRowX;
     private char[] thirdRowX;
@@ -17,13 +16,14 @@ public class GamePlayTest {
     private char[] leftSlantX;
     private char[] rightSlantX;
     private char[] mockedBoard;
-    private static GamePlay mockedGamePlay;
-    private static GamePlay gamePlay;
+    private static Check mockedCheck;
+    private static Check check;
 
 
     @BeforeAll
     public static void steUp() {
-        mockedGamePlay = Mockito.mock(GamePlay.class);
+        check = new Check();
+        mockedCheck = Mockito.mock(Check.class);
     }
 
     @BeforeEach
@@ -38,147 +38,125 @@ public class GamePlayTest {
         leftSlantX = new char[]{'1', '2', 'X', '4', 'X', '6', 'X', '8', '9'};
         mockedBoard = new char[]{'1', '2', '3', '4', '5', '6', '7', '8'};
     }
+
     @Test
-    public void shouldDisplayPlayGame(){
-        mockedGamePlay.playGame();
-        Mockito.verify(mockedGamePlay).playGame();
-    }
-    @Test
-    public void shouldDisplayWinRequirementsCheck(){
-        mockedGamePlay.winRequirementsCheck();
-        Mockito.verify(mockedGamePlay).winRequirementsCheck();
+    public void shouldDisplayWinRequirementsCheck() {
+        mockedCheck.winRequirementsCheck(mockedBoard);
+        Mockito.verify(mockedCheck).winRequirementsCheck(mockedBoard);
     }
 
     @Test
     public void multipleConditionsShouldReturnTrueWhenFirstRowXGiven() {
-        gamePlay = new GamePlay(firstRowX);
-        boolean methodAssertion = gamePlay.multipleConditionsCheck();
+        boolean methodAssertion = check.multipleConditionsCheck(firstRowX);
         Assertions.assertTrue(methodAssertion);
     }
 
     @Test
     public void ConditionsCheckShouldReturnTrueWhenFirstRowXGiven() {
-        gamePlay = new GamePlay(firstRowX);
-        boolean methodAssertion = gamePlay.conditionsCheck(0, 1, 2);
+        boolean methodAssertion = check.conditionsCheck(0, 1, 2, firstRowX);
         Assertions.assertTrue(methodAssertion);
     }
 
     @Test
     public void multipleConditionsShouldReturnTrueWhenSecondRowXGiven() {
-        gamePlay = new GamePlay(secondRowX);
-        boolean methodAssertion = gamePlay.multipleConditionsCheck();
+        boolean methodAssertion = check.multipleConditionsCheck(secondRowX);
         Assertions.assertTrue(methodAssertion);
     }
 
     @Test
     public void ConditionsCheckShouldReturnTrueWhenSecondRowXGiven() {
-        gamePlay = new GamePlay(secondRowX);
-        boolean methodAssertion = gamePlay.conditionsCheck(3, 4, 5);
+        boolean methodAssertion = check.conditionsCheck(3, 4, 5, secondRowX);
         Assertions.assertTrue(methodAssertion);
     }
 
     @Test
     public void multipleConditionsShouldReturnTrueWhenThirdRowXGiven() {
-        gamePlay = new GamePlay(thirdRowX);
-        boolean methodAssertion = gamePlay.multipleConditionsCheck();
+        boolean methodAssertion = check.multipleConditionsCheck(thirdRowX);
         Assertions.assertTrue(methodAssertion);
     }
 
     @Test
     public void ConditionsCheckShouldReturnTrueWhenThirdRowXGiven() {
-        gamePlay = new GamePlay(thirdRowX);
-        boolean methodAssertion = gamePlay.conditionsCheck(6, 7, 8);
+        boolean methodAssertion = check.conditionsCheck(6, 7, 8, thirdRowX);
         Assertions.assertTrue(methodAssertion);
     }
 
     @Test
     public void multipleConditionsShouldReturnTrueWhenFirstColumnXGiven() {
-
-        gamePlay = new GamePlay(firstColumnX);
-        boolean methodAssertion = gamePlay.multipleConditionsCheck();
+        boolean methodAssertion = check.multipleConditionsCheck(firstColumnX);
         Assertions.assertTrue(methodAssertion);
     }
 
     @Test
     public void ConditionsCheckShouldReturnTrueWhenFirstColumnXGiven() {
-        gamePlay = new GamePlay(firstColumnX);
-        boolean methodAssertion = gamePlay.conditionsCheck(0, 3, 6);
+        boolean methodAssertion = check.conditionsCheck(0, 3, 6, firstColumnX);
         Assertions.assertTrue(methodAssertion);
     }
 
     @Test
     public void multipleConditionsShouldReturnTrueWhenSecondColumnXGiven() {
-
-        gamePlay = new GamePlay(secondColumnX);
-        boolean methodAssertion = gamePlay.multipleConditionsCheck();
+        boolean methodAssertion = check.multipleConditionsCheck(secondColumnX);
         Assertions.assertTrue(methodAssertion);
     }
 
     @Test
     public void ConditionsCheckShouldReturnTrueWhenSecondColumnXGiven() {
-        gamePlay = new GamePlay(secondColumnX);
-        boolean methodAssertion = gamePlay.conditionsCheck(1, 4, 7);
+        boolean methodAssertion = check.conditionsCheck(1, 4, 7, secondColumnX);
         Assertions.assertTrue(methodAssertion);
     }
 
     @Test
     public void multipleConditionsShouldReturnTrueWhenThirdColumnXGiven() {
-
-        gamePlay = new GamePlay(thirdColumnX);
-        boolean methodAssertion = gamePlay.multipleConditionsCheck();
+        boolean methodAssertion = check.multipleConditionsCheck(thirdColumnX);
         Assertions.assertTrue(methodAssertion);
     }
 
     @Test
     public void ConditionsCheckShouldReturnTrueWhenThirdColumnXGiven() {
-        gamePlay = new GamePlay(thirdColumnX);
-        boolean methodAssertion = gamePlay.conditionsCheck(2, 5, 8);
+        boolean methodAssertion = check.conditionsCheck(2, 5, 8, thirdColumnX);
         Assertions.assertTrue(methodAssertion);
     }
 
     @Test
     public void multipleConditionsShouldReturnTrueWhenRightSlantXGiven() {
-        gamePlay = new GamePlay(rightSlantX);
-        boolean methodAssertion = gamePlay.multipleConditionsCheck();
+        boolean methodAssertion = check.multipleConditionsCheck(rightSlantX);
         Assertions.assertTrue(methodAssertion);
     }
 
     @Test
     public void ConditionsCheckShouldReturnTrueWhenRightSlantXGiven() {
-        gamePlay = new GamePlay(rightSlantX);
-        boolean methodAssertion = gamePlay.conditionsCheck(0, 4, 8);
+        boolean methodAssertion = check.conditionsCheck(0, 4, 8, rightSlantX);
         Assertions.assertTrue(methodAssertion);
     }
 
     @Test
     public void multipleConditionsShouldReturnTrueWhenLeftSlantXGiven() {
-        gamePlay = new GamePlay(leftSlantX);
-        boolean methodAssertion = gamePlay.multipleConditionsCheck();
+        boolean methodAssertion = check.multipleConditionsCheck(leftSlantX);
         Assertions.assertTrue(methodAssertion);
     }
 
     @Test
     public void ConditionsCheckShouldReturnTrueWhenLeftSlantXGiven() {
-        gamePlay = new GamePlay(leftSlantX);
-        boolean methodAssertion = gamePlay.conditionsCheck(2, 4, 6);
+        boolean methodAssertion = check.conditionsCheck(2, 4, 6, leftSlantX);
         Assertions.assertTrue(methodAssertion);
     }
+
     @Test
     public void multipleConditionsShouldReturnFalseWhenStartBoardGameXGiven() {
-        gamePlay = new GamePlay(mockedBoard);
-        boolean methodAssertion = gamePlay.multipleConditionsCheck();
+        boolean methodAssertion = check.multipleConditionsCheck(mockedBoard);
         Assertions.assertFalse(methodAssertion);
     }
 
     @Test
     public void ConditionsCheckShouldReturnTrueWhenStartBoardGameXGiven() {
-        gamePlay = new GamePlay(mockedBoard);
-        boolean methodAssertion = gamePlay.conditionsCheck(2, 4, 6);
+        boolean methodAssertion = check.conditionsCheck(2, 4, 6, mockedBoard);
         Assertions.assertFalse(methodAssertion);
     }
-@Test
-    public void whenWinnerCheckIsMockedItMustRun(){
-        mockedGamePlay.checkAWinner(1,2,3);
-        Mockito.verify(mockedGamePlay).checkAWinner(1,2,3);
+
+    @Test
+    public void whenWinnerCheckIsMockedItMustRun() {
+        mockedCheck.checkAWinner(1, 2, 3, mockedBoard);
+        Mockito.verify(mockedCheck).checkAWinner(1, 2, 3, mockedBoard);
+    }
 }
-}
+

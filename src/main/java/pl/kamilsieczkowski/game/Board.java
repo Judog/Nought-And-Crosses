@@ -1,9 +1,9 @@
-package pl.kamilsieczkowski.gameBoard;
+package pl.kamilsieczkowski.game;
 
-public class GameBoard {
+public class Board {
     char[] board;
 
-    public char[] setBoard() {
+    public char[] setStartBoard() {
         char a1 = '1';
         char a2 = '2';
         char a3 = '3';

@@ -6,6 +6,12 @@ import java.util.Scanner;
 public class Insert {
     private char selected;
 
+    /**
+     *
+     * @param board - is an array with 9 characters used as board for game
+     * @param crossOrCircle - character X or O to add into the board
+     * @return - changed board with inserted X or O
+     */
     public char[] insertCrosses(char[] board, char crossOrCircle) {
         System.out.println("type number, where you want to insert a cross:");
         int crossInsertPlace = typeNumberToInsert();
@@ -19,12 +25,21 @@ public class Insert {
         return board;
     }
 
+    /**
+     * method allows to insert a number on printed board and converts to array place
+     * @return array place
+     */
     int typeNumberToInsert() {
         Scanner scanner = new Scanner(System.in);
         int crossInsertPlace = scanner.nextInt() - 1;
         return crossInsertPlace;
     }
 
+    /**
+     *
+     * @param board - is an array with 9 characters used as board for game
+     * @return - is an array with inserted circle by computer
+     */
     public char[] computerOpponentInsertingCircles(char[] board) {
         Random random = new Random();
         int circeInsertPlace = random.nextInt(8);
@@ -36,11 +51,22 @@ public class Insert {
         return addCrossOrCircleToBoard(board, circeInsertPlace, 'O');
     }
 
+    /**
+     * changing board and adds a character (X or O)
+     * @param board - is an array with 9 characters used as board for game
+     * @param arrayPlace - place of array to inserts a crossOrCircle
+     * @param crossOrCircle - character (X or O)
+     * @return - changed board
+     */
     char[] addCrossOrCircleToBoard(char[] board, int arrayPlace, char crossOrCircle) {
         board[arrayPlace] = crossOrCircle;
         return board;
     }
-
+    /**
+     * medium Lvl
+     * @param board- is an array with 9 characters used as board for game
+     * @return - is an array with inserted circle by computer
+     */
     public char[] computerOpponentInsertCirclesMediumLvl(char[] board) {
         Check check = new Check();
         char a1 = board[0];
@@ -106,7 +132,11 @@ public class Insert {
         System.out.println("Computer insert circle, your turn...");
         return board;
     }
-
+    /**
+     * Hell Lvl
+     * @param board- is an array with 9 characters used as board for game
+     * @return - is an array with inserted circle by computer
+     */
     public char[] computerOpponentInsertCirclesHellLvl(char[] board) {
         Check check = new Check();
         char a1 = board[0];

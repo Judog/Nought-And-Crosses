@@ -18,12 +18,14 @@ public class CheckTest {
     private char[] mockedBoard;
     private static Check mockedCheck;
     private static Check check;
+    private static Insert spyInsert;
 
 
     @BeforeAll
     public static void steUp() {
         check = new Check();
         mockedCheck = Mockito.mock(Check.class);
+        spyInsert = Mockito.spy(Insert.class);
     }
 
     @BeforeEach
@@ -40,9 +42,27 @@ public class CheckTest {
     }
 
     @Test
-    public void shouldDisplayWinRequirementsCheck() {
-        mockedCheck.winRequirementsCheck(mockedBoard);
-        Mockito.verify(mockedCheck).winRequirementsCheck(mockedBoard);
+    public void givenWinRequirementsCheckMethodWhenInvokedShouldReturnTrue() {
+        mockedCheck.winRequirementsCheckEasyLvl(mockedBoard);
+        Mockito.verify(mockedCheck).winRequirementsCheckEasyLvl(mockedBoard);
+    }
+
+    @Test
+    public void givenWinRequirementsCheckMediumMethodWhenInvokedShouldReturnTrue() {
+        mockedCheck.winRequirementsCheckMedium(mockedBoard);
+        Mockito.verify(mockedCheck).winRequirementsCheckMedium(mockedBoard);
+    }
+
+    @Test
+    public void givenWinRequirementsCheckHellMethodWhenInvokedShouldReturnTrue() {
+        mockedCheck.winRequirementsCheckHell(mockedBoard);
+        Mockito.verify(mockedCheck).winRequirementsCheckHell(mockedBoard);
+    }
+
+    @Test
+    public void givenCheckAWinnerMethodWhenInvokedShouldReturnTrue() {
+        mockedCheck.checkAWinner(1, 2, 3, rightSlantX);
+        Mockito.verify(mockedCheck).checkAWinner(1, 2, 3, rightSlantX);
     }
 
     @Test
@@ -151,6 +171,46 @@ public class CheckTest {
     public void ConditionsCheckShouldReturnTrueWhenStartBoardGameXGiven() {
         boolean methodAssertion = check.conditionsCheck(2, 4, 6, mockedBoard);
         Assertions.assertFalse(methodAssertion);
+    }
+
+    @Test
+    public void givenFirstRowXAndBlockedWhenInsertCrossesIsBlockedThenInsideLoopHumanReturnFirstRowX() {
+        Mockito.doReturn(firstRowX).when(spyInsert).insertCrosses(firstRowX, 'X');
+        char[] insideLoopHumanReturn = check.insideLoopHuman(firstRowX, spyInsert);
+        Assertions.assertArrayEquals(insideLoopHumanReturn, firstRowX);
+    }
+
+    @Test
+    public void givenFirstRowXAndBlockedWhenInsertCrossesIsBlockedThenInsideLoopComputerReturnFirstRowX() {
+        Mockito.doReturn(firstRowX).when(spyInsert).computerOpponentInsertingCircles(firstRowX);
+        char[] insideLoopComputer = check.insideLoopComputerEasyMode(firstRowX, spyInsert);
+        Assertions.assertArrayEquals(insideLoopComputer, firstRowX);
+    }
+
+    @Test
+    public void givenFirstRowXAndBlockedWhenInsertCrossesIsBlockedThenInsideLoopComputerMediumReturnFirstRowX() {
+        Mockito.doReturn(firstRowX).when(spyInsert).computerOpponentInsertCirclesMediumLvl(firstRowX);
+        char[] insideLoopComputer = check.insideLoopComputerMedium(firstRowX, spyInsert);
+        Assertions.assertArrayEquals(insideLoopComputer, firstRowX);
+    }
+
+    @Test
+    public void agivenFirstRowXAndBlockedWhenInsertCrossesIsBlockedThenInsideLoopComputerMediumReturnFirstRowX() {
+        Mockito.doReturn(firstRowX).when(spyInsert).computerOpponentInsertCirclesHellLvl(firstRowX);
+        char[] insideLoopComputer = check.insideLoopComputerHellLvl(firstRowX, spyInsert);
+        Assertions.assertArrayEquals(insideLoopComputer, firstRowX);
+    }
+
+    @Test
+    public void computerCheckMediumWhenCharactersAreThisSameThenShouldPrintTrue() {
+        boolean computerCheck = check.computerCheckMedium('X', 'X', 'X');
+        Assertions.assertEquals(true, computerCheck);
+    }
+
+    @Test
+    public void computerCheckMediumWhenCharactersAreDifferentThenShouldPrintFalse() {
+        boolean computerCheck = check.computerCheckMedium('O', 'X', 'X');
+        Assertions.assertEquals(false, computerCheck);
     }
 
     @Test

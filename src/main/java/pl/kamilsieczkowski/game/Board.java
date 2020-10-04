@@ -2,7 +2,7 @@ package pl.kamilsieczkowski.game;
 
 public class Board {
     char[] board;
-
+/**  Invokes start array used for board game*/
     public char[] setStartBoard() {
         char a1 = '1';
         char a2 = '2';
@@ -18,7 +18,10 @@ public class Board {
                 c1, c2, c3};
         return board;
     }
-
+/**
+ * displays board as 3 columns and 3 rows
+ *  @param board is array with 9 characters used as board for game
+ * */
     public void displayBoard(char[] board) {
         System.out.print("|");
         for (int i = 1; i <= 9; i++) {

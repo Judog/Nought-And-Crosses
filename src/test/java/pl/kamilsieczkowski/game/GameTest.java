@@ -1,46 +1,43 @@
 package pl.kamilsieczkowski.game;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import pl.kamilsieczkowski.utils.Check;
 
 
 public class GameTest {
-    private char[] firstRowX;
-    private char[] secondRowX;
-    private char[] thirdRowX;
-    private char[] firstColumnX;
-    private char[] secondColumnX;
-    private char[] thirdColumnX;
-    private char[] leftSlantX;
-    private char[] rightSlantX;
-    private char[] mockedBoard;
+    private static Check mockedCheck;
+    private static Board mockedBoard;
+    private static char[] startBoard;
     private static Game mockedGame;
-    private static Game game;
-
 
     @BeforeAll
     public static void steUp() {
+        mockedCheck = Mockito.mock(Check.class);
+        mockedBoard = Mockito.mock(Board.class);
+        startBoard = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
         mockedGame = Mockito.mock(Game.class);
     }
 
-    @BeforeEach
-    public void start() {
-        firstRowX = new char[]{'X', 'X', 'X', '4', '5', '6', '7', '8', '9'};
-        secondRowX = new char[]{'1', '2', '3', 'X', 'X', 'X', '7', '8', '9'};
-        thirdRowX = new char[]{'1', '2', '3', '4', '5', '6', 'X', 'X', 'X'};
-        firstColumnX = new char[]{'X', '2', '3', 'X', '5', '6', 'X', '8', '9'};
-        secondColumnX = new char[]{'1', 'X', '3', '4', 'X', '6', '7', 'X', '9'};
-        thirdColumnX = new char[]{'1', '2', 'X', '4', '5', 'X', '7', '8', 'X'};
-        rightSlantX = new char[]{'X', '2', '3', '4', 'X', '6', '7', '8', 'X'};
-        leftSlantX = new char[]{'1', '2', 'X', '4', 'X', '6', 'X', '8', '9'};
-        mockedBoard = new char[]{'1', '2', '3', '4', '5', '6', '7', '8'};
-    }
     @Test
-    public void shouldDisplayPlayGame(){
+    public void givenPlayGameEasyLvlWhenInvokedShouldReturnTrue() {
         mockedGame.playGameEasyLvl();
         Mockito.verify(mockedGame).playGameEasyLvl();
     }
-
+    @Test
+    public void givenPlayGameMediumLvlWhenInvokedShouldReturnTrue() {
+        mockedGame.playGameOnMediumLvl();
+        Mockito.verify(mockedGame).playGameOnMediumLvl();
+    }
+    @Test
+    public void givenPlayGameHellLvlWhenInvokedShouldReturnTrue() {
+        mockedGame.playGameOnHellLvl();
+        Mockito.verify(mockedGame).playGameOnHellLvl();
+    }
+    @Test
+    public void givenPlayGameWithOtherPlayerWhenInvokedShouldReturnTrue() {
+        mockedGame.playGameWithOtherPlayer();
+        Mockito.verify(mockedGame).playGameWithOtherPlayer();
+    }
 }

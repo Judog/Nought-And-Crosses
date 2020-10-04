@@ -11,43 +11,42 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class BoardTest {
     private static Board board;
     private static char[] givenBoard;
-    @Mock
     private static Board mockedBoard;
-    char[] boardForGame;
+    private static char[] boardForGame;
 
     @BeforeAll
     public static void setUp() {
+        boardForGame = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
         board = new Board();
         givenBoard = board.setStartBoard();
         mockedBoard = Mockito.mock(Board.class);
     }
 
     @Test
-    public void shouldInitiate9elementsBoard() {
-        //given
-        //when
+    public void givenBoardForGameWhenEqualsWithReturnOfSetStartBoardShouldPrintTrue() {
+        char[] startBoard = board.setStartBoard();
+        Assertions.assertArrayEquals(startBoard, boardForGame);
+    }
+
+    @Test
+    public void givenBoardWhenInvokedBySetStartBoardShouldHaveSize9() {
         int sizeOfGivenBoard = givenBoard.length;
-        //then
         Assertions.assertEquals(sizeOfGivenBoard, 9);
     }
 
     private void elementOfBoardShouldBeChar(int elementOfBoard) {
-        //then
         assertThat(givenBoard[elementOfBoard]).isInstanceOf(Character.class);
     }
 
     @Test
-    public void shouldBeCharInEveryElementOfBoard() {
-        //when
+    public void givenElementOfSetStartBoardShouldBeChar() {
         for (int counter = 0; counter < 9; counter++) {
-            //given
             elementOfBoardShouldBeChar(counter);
         }
     }
 
     @Test
-    public void shouldDisplayBoard() {
-        boardForGame = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+    public void givenDisplayBoardMethodWhenInvokedShouldReturnTrue() {
         mockedBoard.displayBoard(boardForGame);
         Mockito.verify(mockedBoard, Mockito.times(1)).displayBoard(boardForGame);
     }

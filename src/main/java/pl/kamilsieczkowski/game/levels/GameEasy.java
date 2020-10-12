@@ -1,13 +1,10 @@
 package pl.kamilsieczkowski.game.levels;
 
 import pl.kamilsieczkowski.game.Board;
-import pl.kamilsieczkowski.utils.Checker;
 import pl.kamilsieczkowski.utils.Insert;
 import pl.kamilsieczkowski.utils.checkers.CheckerEasyLvl;
 
 public class GameEasy {
-    private CheckerEasyLvl checker;
-    private Board board;
     protected char[] boardGame;
 
 

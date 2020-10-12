@@ -14,7 +14,7 @@ import static pl.kamilsieczkowski.constants.Texts.*;
 public class Menu {
     Scanner scanner;
     Board board;
-    Game game;
+
     Checker checker;
 
     /**
@@ -23,7 +23,6 @@ public class Menu {
     public void displayMenu() {
         board = new Board();
         checker = new Checker();
-        game = new Game(checker, board, board.setStartBoard());
         scanner = new Scanner(System.in);
         System.out.println(playWithComputer);
         System.out.println(playWithOtherPlayer);
@@ -46,7 +45,6 @@ public class Menu {
      * displays menu to start game with computer
      */
     void displayPlayWithComputer() {
-        game = new Game(checker, board, board.setStartBoard());
         System.out.println(easy);
         System.out.println(medium);
         System.out.println(hell);

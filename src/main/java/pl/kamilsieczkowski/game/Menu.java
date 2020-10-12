@@ -1,35 +1,43 @@
 package pl.kamilsieczkowski.game;
 
-import pl.kamilsieczkowski.utils.Check;
+import pl.kamilsieczkowski.game.levels.GameEasy;
+import pl.kamilsieczkowski.game.levels.GameHell;
+import pl.kamilsieczkowski.game.levels.GameMedium;
+import pl.kamilsieczkowski.game.levels.GameWithOtherPlayer;
+import pl.kamilsieczkowski.utils.Checker;
 
 import java.util.Scanner;
+
+import static pl.kamilsieczkowski.constants.Constants.*;
+import static pl.kamilsieczkowski.constants.Texts.*;
 
 public class Menu {
     Scanner scanner;
     Board board;
     Game game;
-    Check check;
+    Checker checker;
 
     /**
      * displays menu
      */
     public void displayMenu() {
         board = new Board();
-        check = new Check();
-        game = new Game(check, board, board.setStartBoard());
+        checker = new Checker();
+        game = new Game(checker, board, board.setStartBoard());
         scanner = new Scanner(System.in);
-        System.out.println("1. Play with computer");
-        System.out.println("2. Play with other Person");
-        System.out.println("3. Exit");
+        System.out.println(playWithComputer);
+        System.out.println(playWithOtherPlayer);
+        System.out.println(exit);
         int insert = scanner.nextInt();
-        if (insert == 1) {
+        if (insert == ONE) {
             displayPlayWithComputer();
-        } else if (insert == 2) {
-            game.playGameWithOtherPlayer();
-        } else if (insert == 3) {
-            // nothing here - end of the game
+        } else if (insert == TWO) {
+            GameWithOtherPlayer gameWithOtherPlayer = new GameWithOtherPlayer(board.setStartBoard());
+            gameWithOtherPlayer.playGame();
+        } else if (insert == THREE) {
+            System.exit(0);
         } else {
-            System.out.println("wrong, insert number from 1 to 3");
+            System.out.println(wrongNumber);
             displayMenu();
         }
     }
@@ -38,19 +46,22 @@ public class Menu {
      * displays menu to start game with computer
      */
     void displayPlayWithComputer() {
-        game = new Game(check, board, board.setStartBoard());
-        System.out.println("1. Easy Mode");
-        System.out.println("2. Medium Mode");
-        System.out.println("3. Hell Mode");
+        game = new Game(checker, board, board.setStartBoard());
+        System.out.println(easy);
+        System.out.println(medium);
+        System.out.println(hell);
         int insert = scanner.nextInt();
-        if (insert == 1) {
-            game.playGameEasyLvl();
-        } else if (insert == 2) {
-            game.playGameOnMediumLvl();
-        } else if (insert == 3) {
-            game.playGameOnHellLvl();
+        if (insert == ONE) {
+            GameEasy gameEasy = new GameEasy(board.setStartBoard());
+            gameEasy.playGame();
+        } else if (insert == TWO) {
+            GameMedium gameMedium = new GameMedium(board.setStartBoard());
+            gameMedium.playGame();
+        } else if (insert == THREE) {
+            GameHell gameHell= new GameHell(board.setStartBoard());
+            gameHell.playGame();
         } else {
-            System.out.println("wrong, insert number from 1 to 3");
+            System.out.println(wrongNumber);
             displayPlayWithComputer();
         }
     }

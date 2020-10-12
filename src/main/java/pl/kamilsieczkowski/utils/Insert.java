@@ -68,7 +68,7 @@ public class Insert {
      * @return - is an array with inserted circle by computer
      */
     public char[] computerOpponentInsertCirclesMediumLvl(char[] board) {
-        Check check = new Check();
+        Checker checker = new Checker();
         char a1 = board[0];
         char a2 = board[1];
         char a3 = board[2];
@@ -78,53 +78,53 @@ public class Insert {
         char c1 = board[6];
         char c2 = board[7];
         char c3 = board[8];
-        if (check.computerCheckMedium(a1, a2, 'O') && board[2] != 'X' && board[2] != 'O') {
+        if (checker.computerCheckMedium(a1, a2, 'O') && board[2] != 'X' && board[2] != 'O') {
             board[2] = 'O';
-        } else if (check.computerCheckMedium(a2, a3, 'O') && board[0] != 'X' && board[0] != 'O') {
+        } else if (checker.computerCheckMedium(a2, a3, 'O') && board[0] != 'X' && board[0] != 'O') {
             board[0] = 'O';
-        } else if (check.computerCheckMedium(a1, a3, 'O') && board[1] != 'X' && board[1] != 'O') {
+        } else if (checker.computerCheckMedium(a1, a3, 'O') && board[1] != 'X' && board[1] != 'O') {
             board[1] = 'O';
-        } else if (check.computerCheckMedium(b1, b2, 'O') && board[5] != 'X' && board[5] != 'O') {
+        } else if (checker.computerCheckMedium(b1, b2, 'O') && board[5] != 'X' && board[5] != 'O') {
             board[5] = 'O';
-        } else if (check.computerCheckMedium(b2, b3, 'O') && board[3] != 'X' && board[3] != 'O') {
+        } else if (checker.computerCheckMedium(b2, b3, 'O') && board[3] != 'X' && board[3] != 'O') {
             board[3] = 'O';
-        } else if (check.computerCheckMedium(b1, b3, 'O') && board[4] != 'X' && board[4] != 'O') {
+        } else if (checker.computerCheckMedium(b1, b3, 'O') && board[4] != 'X' && board[4] != 'O') {
             board[4] = 'O';
-        } else if (check.computerCheckMedium(c1, c2, 'O') && board[8] != 'X' && board[8] != 'O') {
+        } else if (checker.computerCheckMedium(c1, c2, 'O') && board[8] != 'X' && board[8] != 'O') {
             board[8] = 'O';
-        } else if (check.computerCheckMedium(c2, c3, 'O') && board[6] != 'X' && board[6] != 'O') {
+        } else if (checker.computerCheckMedium(c2, c3, 'O') && board[6] != 'X' && board[6] != 'O') {
             board[6] = 'O';
-        } else if (check.computerCheckMedium(c1, c3, 'O') && board[7] != 'X' && board[7] != 'O') {
+        } else if (checker.computerCheckMedium(c1, c3, 'O') && board[7] != 'X' && board[7] != 'O') {
             board[7] = 'O';
-        } else if (check.computerCheckMedium(a1, b1, 'O') && board[6] != 'X' && board[6] != 'O') {
+        } else if (checker.computerCheckMedium(a1, b1, 'O') && board[6] != 'X' && board[6] != 'O') {
             board[6] = 'O';
-        } else if (check.computerCheckMedium(c1, b1, 'O') && board[0] != 'X' && board[0] != 'O') {
+        } else if (checker.computerCheckMedium(c1, b1, 'O') && board[0] != 'X' && board[0] != 'O') {
             board[0] = 'O';
-        } else if (check.computerCheckMedium(c1, a1, 'O') && board[3] != 'X' && board[3] != 'O') {
+        } else if (checker.computerCheckMedium(c1, a1, 'O') && board[3] != 'X' && board[3] != 'O') {
             board[3] = 'O';
-        } else if (check.computerCheckMedium(a2, b2, 'O') && board[7] != 'X' && board[7] != 'O') {
+        } else if (checker.computerCheckMedium(a2, b2, 'O') && board[7] != 'X' && board[7] != 'O') {
             board[7] = 'O';
-        } else if (check.computerCheckMedium(a2, c2, 'O') && board[4] != 'X' && board[4] != 'O') {
+        } else if (checker.computerCheckMedium(a2, c2, 'O') && board[4] != 'X' && board[4] != 'O') {
             board[4] = 'O';
-        } else if (check.computerCheckMedium(b2, c2, 'O') && board[1] != 'X' && board[1] != 'O') {
+        } else if (checker.computerCheckMedium(b2, c2, 'O') && board[1] != 'X' && board[1] != 'O') {
             board[1] = 'O';
-        } else if (check.computerCheckMedium(a3, b3, 'O') && board[8] != 'X' && board[8] != 'O') {
+        } else if (checker.computerCheckMedium(a3, b3, 'O') && board[8] != 'X' && board[8] != 'O') {
             board[8] = 'O';
-        } else if (check.computerCheckMedium(a3, c3, 'O') && board[5] != 'X' && board[5] != 'O') {
+        } else if (checker.computerCheckMedium(a3, c3, 'O') && board[5] != 'X' && board[5] != 'O') {
             board[5] = 'O';
-        } else if (check.computerCheckMedium(b3, c3, 'O') && board[2] != 'X' && board[2] != 'O') {
+        } else if (checker.computerCheckMedium(b3, c3, 'O') && board[2] != 'X' && board[2] != 'O') {
             board[2] = 'O';
-        } else if (check.computerCheckMedium(a1, b2, 'O') && board[8] != 'X' && board[8] != 'O') {
+        } else if (checker.computerCheckMedium(a1, b2, 'O') && board[8] != 'X' && board[8] != 'O') {
             board[8] = 'O';
-        } else if (check.computerCheckMedium(c3, b2, 'O') && board[0] != 'X' && board[0] != 'O') {
+        } else if (checker.computerCheckMedium(c3, b2, 'O') && board[0] != 'X' && board[0] != 'O') {
             board[0] = 'O';
-        } else if (check.computerCheckMedium(c3, a1, 'O') && board[4] != 'X' && board[4] != 'O') {
+        } else if (checker.computerCheckMedium(c3, a1, 'O') && board[4] != 'X' && board[4] != 'O') {
             board[4] = 'O';
-        } else if (check.computerCheckMedium(a3, b2, 'O') && board[6] != 'X' && board[6] != 'O') {
+        } else if (checker.computerCheckMedium(a3, b2, 'O') && board[6] != 'X' && board[6] != 'O') {
             board[6] = 'O';
-        } else if (check.computerCheckMedium(c1, b2, 'O') && board[2] != 'X' && board[2] != 'O') {
+        } else if (checker.computerCheckMedium(c1, b2, 'O') && board[2] != 'X' && board[2] != 'O') {
             board[2] = 'O';
-        } else if (check.computerCheckMedium(c1, a3, 'O') && board[4] != 'X' && board[4] != 'O') {
+        } else if (checker.computerCheckMedium(c1, a3, 'O') && board[4] != 'X' && board[4] != 'O') {
             board[4] = 'O';
         } else {
             board = computerOpponentInsertingCircles(board);
@@ -138,7 +138,7 @@ public class Insert {
      * @return - is an array with inserted circle by computer
      */
     public char[] computerOpponentInsertCirclesHellLvl(char[] board) {
-        Check check = new Check();
+        Checker checker = new Checker();
         char a1 = board[0];
         char a2 = board[1];
         char a3 = board[2];
@@ -148,53 +148,53 @@ public class Insert {
         char c1 = board[6];
         char c2 = board[7];
         char c3 = board[8];
-        if (check.computerCheckMedium(a1, a2, 'X') && board[2] != 'X' && board[2] != 'O') {
+        if (checker.computerCheckMedium(a1, a2, 'X') && board[2] != 'X' && board[2] != 'O') {
             board[2] = 'O';
-        } else if (check.computerCheckMedium(a2, a3, 'X') && board[0] != 'X' && board[0] != 'O') {
+        } else if (checker.computerCheckMedium(a2, a3, 'X') && board[0] != 'X' && board[0] != 'O') {
             board[0] = 'O';
-        } else if (check.computerCheckMedium(a1, a3, 'X') && board[1] != 'X' && board[1] != 'O') {
+        } else if (checker.computerCheckMedium(a1, a3, 'X') && board[1] != 'X' && board[1] != 'O') {
             board[1] = 'O';
-        } else if (check.computerCheckMedium(b1, b2, 'X') && board[5] != 'X' && board[5] != 'O') {
+        } else if (checker.computerCheckMedium(b1, b2, 'X') && board[5] != 'X' && board[5] != 'O') {
             board[5] = 'O';
-        } else if (check.computerCheckMedium(b2, b3, 'X') && board[3] != 'X' && board[3] != 'O') {
+        } else if (checker.computerCheckMedium(b2, b3, 'X') && board[3] != 'X' && board[3] != 'O') {
             board[3] = 'O';
-        } else if (check.computerCheckMedium(b1, b3, 'X') && board[4] != 'X' && board[4] != 'O') {
+        } else if (checker.computerCheckMedium(b1, b3, 'X') && board[4] != 'X' && board[4] != 'O') {
             board[4] = 'O';
-        } else if (check.computerCheckMedium(c1, c2, 'X') && board[8] != 'X' && board[8] != 'O') {
+        } else if (checker.computerCheckMedium(c1, c2, 'X') && board[8] != 'X' && board[8] != 'O') {
             board[8] = 'O';
-        } else if (check.computerCheckMedium(c2, c3, 'X') && board[6] != 'X' && board[6] != 'O') {
+        } else if (checker.computerCheckMedium(c2, c3, 'X') && board[6] != 'X' && board[6] != 'O') {
             board[6] = 'O';
-        } else if (check.computerCheckMedium(c1, c3, 'X') && board[7] != 'X' && board[7] != 'O') {
+        } else if (checker.computerCheckMedium(c1, c3, 'X') && board[7] != 'X' && board[7] != 'O') {
             board[7] = 'O';
-        } else if (check.computerCheckMedium(a1, b1, 'X') && board[6] != 'X' && board[6] != 'O') {
+        } else if (checker.computerCheckMedium(a1, b1, 'X') && board[6] != 'X' && board[6] != 'O') {
             board[6] = 'O';
-        } else if (check.computerCheckMedium(c1, b1, 'X') && board[0] != 'X' && board[0] != 'O') {
+        } else if (checker.computerCheckMedium(c1, b1, 'X') && board[0] != 'X' && board[0] != 'O') {
             board[0] = 'O';
-        } else if (check.computerCheckMedium(c1, a1, 'X') && board[3] != 'X' && board[3] != 'O') {
+        } else if (checker.computerCheckMedium(c1, a1, 'X') && board[3] != 'X' && board[3] != 'O') {
             board[3] = 'O';
-        } else if (check.computerCheckMedium(a2, b2, 'X') && board[7] != 'X' && board[7] != 'O') {
+        } else if (checker.computerCheckMedium(a2, b2, 'X') && board[7] != 'X' && board[7] != 'O') {
             board[7] = 'O';
-        } else if (check.computerCheckMedium(a2, c2, 'X') && board[4] != 'X' && board[4] != 'O') {
+        } else if (checker.computerCheckMedium(a2, c2, 'X') && board[4] != 'X' && board[4] != 'O') {
             board[4] = 'O';
-        } else if (check.computerCheckMedium(b2, c2, 'X') && board[1] != 'X' && board[1] != 'O') {
+        } else if (checker.computerCheckMedium(b2, c2, 'X') && board[1] != 'X' && board[1] != 'O') {
             board[1] = 'O';
-        } else if (check.computerCheckMedium(a3, b3, 'X') && board[8] != 'X' && board[8] != 'O') {
+        } else if (checker.computerCheckMedium(a3, b3, 'X') && board[8] != 'X' && board[8] != 'O') {
             board[8] = 'O';
-        } else if (check.computerCheckMedium(a3, c3, 'X') && board[5] != 'X' && board[5] != 'O') {
+        } else if (checker.computerCheckMedium(a3, c3, 'X') && board[5] != 'X' && board[5] != 'O') {
             board[5] = 'O';
-        } else if (check.computerCheckMedium(b3, c3, 'X') && board[2] != 'X' && board[2] != 'O') {
+        } else if (checker.computerCheckMedium(b3, c3, 'X') && board[2] != 'X' && board[2] != 'O') {
             board[2] = 'O';
-        } else if (check.computerCheckMedium(a1, b2, 'X') && board[8] != 'X' && board[8] != 'O') {
+        } else if (checker.computerCheckMedium(a1, b2, 'X') && board[8] != 'X' && board[8] != 'O') {
             board[8] = 'O';
-        } else if (check.computerCheckMedium(c3, b2, 'X') && board[0] != 'X' && board[0] != 'O') {
+        } else if (checker.computerCheckMedium(c3, b2, 'X') && board[0] != 'X' && board[0] != 'O') {
             board[0] = 'O';
-        } else if (check.computerCheckMedium(c3, a1, 'X') && board[4] != 'X' && board[4] != 'O') {
+        } else if (checker.computerCheckMedium(c3, a1, 'X') && board[4] != 'X' && board[4] != 'O') {
             board[4] = 'O';
-        } else if (check.computerCheckMedium(a3, b2, 'X') && board[6] != 'X' && board[6] != 'O') {
+        } else if (checker.computerCheckMedium(a3, b2, 'X') && board[6] != 'X' && board[6] != 'O') {
             board[6] = 'O';
-        } else if (check.computerCheckMedium(c1, b2, 'X') && board[2] != 'X' && board[2] != 'O') {
+        } else if (checker.computerCheckMedium(c1, b2, 'X') && board[2] != 'X' && board[2] != 'O') {
             board[2] = 'O';
-        } else if (check.computerCheckMedium(c1, a3, 'X') && board[4] != 'X' && board[4] != 'O') {
+        } else if (checker.computerCheckMedium(c1, a3, 'X') && board[4] != 'X' && board[4] != 'O') {
             board[4] = 'O';
         } else {
             board = computerOpponentInsertCirclesMediumLvl(board);

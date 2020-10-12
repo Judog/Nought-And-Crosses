@@ -1,15 +1,15 @@
 package pl.kamilsieczkowski.game;
 
-import pl.kamilsieczkowski.utils.Check;
+import pl.kamilsieczkowski.utils.Checker;
 
 public class Game {
-    private Check check;
+    private Checker checker;
     private Board board;
     private char[] boardGame;
 
 
-    public Game(Check check, Board board, char[] boardGame) {
-        this.check = check;
+    public Game(Checker checker, Board board, char[] boardGame) {
+        this.checker = checker;
         this.board = board;
         this.boardGame = boardGame;
     }
@@ -19,7 +19,7 @@ public class Game {
      */
     public void playGameEasyLvl() {
         board.displayBoard(boardGame);
-        check.winRequirementsCheckEasyLvl(boardGame);
+        checker.winRequirementsCheckEasyLvl(boardGame);
     }
 
     /**
@@ -27,7 +27,7 @@ public class Game {
      */
     public void playGameOnMediumLvl() {
         board.displayBoard(boardGame);
-        check.winRequirementsCheckMedium(boardGame);
+        checker.winRequirementsCheckMedium(boardGame);
     }
 
     /**
@@ -35,7 +35,7 @@ public class Game {
      */
     public void playGameOnHellLvl() {
         board.displayBoard(boardGame);
-        check.winRequirementsCheckHell(boardGame);
+        checker.winRequirementsCheckHell(boardGame);
     }
 
     /**
@@ -43,6 +43,6 @@ public class Game {
      */
     public void playGameWithOtherPlayer() {
         board.displayBoard(boardGame);
-        check.winRequirementsCheckTwoPlayers(boardGame);
+        checker.winRequirementsCheckTwoPlayers(boardGame);
     }
 }

@@ -3,18 +3,18 @@ package pl.kamilsieczkowski.game;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import pl.kamilsieczkowski.utils.Check;
+import pl.kamilsieczkowski.utils.Checker;
 
 
 public class GameTest {
-    private static Check mockedCheck;
+    private static Checker mockedChecker;
     private static Board mockedBoard;
     private static char[] startBoard;
     private static Game mockedGame;
 
     @BeforeAll
     public static void steUp() {
-        mockedCheck = Mockito.mock(Check.class);
+        mockedChecker = Mockito.mock(Checker.class);
         mockedBoard = Mockito.mock(Board.class);
         startBoard = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
         mockedGame = Mockito.mock(Game.class);

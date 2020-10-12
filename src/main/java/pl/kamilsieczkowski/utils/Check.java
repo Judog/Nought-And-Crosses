@@ -2,12 +2,12 @@ package pl.kamilsieczkowski.utils;
 
 import pl.kamilsieczkowski.game.Board;
 
-public class Check {
+public class Checker {
     boolean winOrLoseGameCondition;
     private Insert insert;
     private Board board;
 
-    public Check() {
+    public Checker() {
         this.insert = new Insert();
         this.board = new Board();
     }

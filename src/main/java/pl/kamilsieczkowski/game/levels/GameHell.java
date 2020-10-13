@@ -1,24 +1,21 @@
 package pl.kamilsieczkowski.game.levels;
 
 import pl.kamilsieczkowski.game.Board;
-import pl.kamilsieczkowski.game.levels.GameMedium;
-import pl.kamilsieczkowski.utils.Insert;
+import pl.kamilsieczkowski.utils.Inserter;
 import pl.kamilsieczkowski.utils.checkers.CheckerHellLvl;
 
 
 public class GameHell extends GameMedium {
-    public GameHell(char[] boardGame) {
-        super(boardGame);
+    public GameHell(char[] boardGame, Board board, Inserter inserter) {
+        super(boardGame, board, inserter);
     }
 
     /**
-     * Starts game on medium lvl from Menu
+     * Starts game on Hell lvl from Menu
      */
     @Override
     public void playGame() {
-        Board board = new Board();
-        Insert insert = new Insert();
-        CheckerHellLvl checker = new CheckerHellLvl(insert, board);
+        CheckerHellLvl checker = new CheckerHellLvl(inserter, board);
         board.displayBoard(boardGame);
         checker.winRequirementsCheck(boardGame);
     }

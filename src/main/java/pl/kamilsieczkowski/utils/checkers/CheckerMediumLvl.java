@@ -1,26 +1,25 @@
 package pl.kamilsieczkowski.utils.checkers;
 
 import pl.kamilsieczkowski.game.Board;
-import pl.kamilsieczkowski.utils.Insert;
-import pl.kamilsieczkowski.utils.checkers.CheckerEasyLvl;
+import pl.kamilsieczkowski.utils.Inserter;
 
 public class CheckerMediumLvl extends CheckerEasyLvl {
 
 
-    public CheckerMediumLvl(Insert insert, Board board) {
-        super(insert, board);
+    public CheckerMediumLvl(Inserter inserter, Board board) {
+        super(inserter, board);
     }
 
     /**
      * all things done by computer player in one of winRequirementCheck method
      *
-     * @param boardGame is an array with 9 characters used as board for game
-     * @param insert    invocation of Insert class to use one of Insert method
+     * @param boardGame - is an array with 9 characters used as board for game
+     * @param inserter - invocation of Insert class to use one of Insert method
      * @return is an array with 9 characters used as board for game, after changes done by computer player
      */
     @Override
-    char[] insideLoopComputer(char[] boardGame, Insert insert) {
-        boardGame = insert.computerOpponentInsertCirclesMediumLvl(boardGame);
+    char[] insideLoopComputer(char[] boardGame, Inserter inserter) {
+        boardGame = inserter.computerOpponentInsertCirclesMediumLvl(boardGame);
         board.displayBoard(boardGame);
         return boardGame;
     }
@@ -31,7 +30,7 @@ public class CheckerMediumLvl extends CheckerEasyLvl {
      * @param three - third char
      * @return boolean condition one==two==three
      */
-    boolean computerCheckMedium(char one, char two, char three) {
+    public boolean computerCheckMedium(char one, char two, char three) {
         return one == two && two == three;
     }
 }

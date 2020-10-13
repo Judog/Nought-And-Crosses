@@ -1,11 +1,15 @@
 package pl.kamilsieczkowski.utils.checkers;
 
 import pl.kamilsieczkowski.game.Board;
-import pl.kamilsieczkowski.utils.Insert;
+import pl.kamilsieczkowski.utils.Inserter;
+
+import static pl.kamilsieczkowski.constants.Constants.CIRCLE;
+import static pl.kamilsieczkowski.constants.Constants.CROSS;
+import static pl.kamilsieczkowski.constants.Texts.*;
 
 public class CheckerTwoPlayers extends CheckerEasyLvl {
-    public CheckerTwoPlayers(Insert insert, Board board) {
-        super(insert, board);
+    public CheckerTwoPlayers(Inserter inserter, Board board) {
+        super(inserter, board);
     }
 
     /**
@@ -19,34 +23,34 @@ public class CheckerTwoPlayers extends CheckerEasyLvl {
     public void winRequirementsCheck(char[] boardGame) {
         int turnCounter = 0;
         while (!winOrLoseGameCondition) {
-            insideLoopHuman(boardGame, insert, 'X');
+            insideLoopHuman(boardGame, inserter, CROSS);
             winOrLoseGameCondition = multipleConditionsCheck(boardGame);
             turnCounter++;
             if (turnCounter == 9) {
                 break;
             }
-            insideLoopHuman(boardGame, insert, 'O');
+            insideLoopHuman(boardGame, inserter, CIRCLE);
             winOrLoseGameCondition = multipleConditionsCheck(boardGame);
             turnCounter++;
         }
-        System.out.println("Game Over");
+        System.out.println(GAME_OVER);
     }
 
-    char[] insideLoopHuman(char[] boardGame, Insert insert, char crossOrCircle) {
-        boardGame = insert.insertCrosses(boardGame, crossOrCircle);
+    char[] insideLoopHuman(char[] boardGame, Inserter inserter, char crossOrCircle) {
+        boardGame = inserter.insertCrosses(boardGame, crossOrCircle);
         board.displayBoard(boardGame);
         secondPlayerTurnMessage(crossOrCircle);
         return boardGame;
     }
 
     void secondPlayerTurnMessage(char crossOrCircle) {
-        System.out.println("player " + crossOrCircle + " turn is done");
-        char secondPlayer = 'X';
-        if (crossOrCircle == 'X') {
-            secondPlayer = 'O';
+        System.out.println(PLAYER + SPACE + crossOrCircle + SPACE + TURN_IS_DONE);
+        char secondPlayer = CROSS;
+        if (crossOrCircle == CROSS) {
+            secondPlayer = CIRCLE;
         } else {
-            secondPlayer = 'X';
+            secondPlayer = CROSS;
         }
-        System.out.println("It's " + secondPlayer + " player turn");
+        System.out.println(IT_IS + SPACE + secondPlayer + SPACE + PLAYER_TURN);
     }
 }

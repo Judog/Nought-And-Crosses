@@ -22,10 +22,10 @@ public class Board {
      */
     public void displayBoard(char[] board) {
         System.out.print(PIPE);
-        for (int loopCounter = 1; loopCounter <= 9; loopCounter++) {
-            System.out.print(board[loopCounter - 1]);
+        for (int loopCounter = ONE; loopCounter <= NINE; loopCounter++) {
+            System.out.print(board[loopCounter - ONE]);
             System.out.print(PIPE);
-            if (loopCounter % 3 == 0 && loopCounter < 9) {
+            if (loopCounter % THREE == ZERO && loopCounter < NINE) {
                 System.out.println();
                 System.out.print(PIPE);
             }

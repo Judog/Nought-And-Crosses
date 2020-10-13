@@ -10,8 +10,13 @@ public class Constants {
     public static char C1 = '7';
     public static char C2 = '8';
     public static char C3 = '9';
+    public static char CROSS = 'X';
+    public static char CIRCLE = 'O';
     public static final char PIPE = '|';
-    public static final int ONE = 1;
-    public static final int TWO = 2;
-    public static final int THREE = 3;
+    public static int ONE = 1;
+    public static int TWO = 2;
+    public static int THREE = 3;
+    public static int EIGHT = 8;
+    public static int NINE = 9;
+    public static int ZERO = 0;
 }

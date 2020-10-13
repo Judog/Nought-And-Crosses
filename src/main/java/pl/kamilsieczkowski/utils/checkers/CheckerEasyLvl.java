@@ -1,15 +1,18 @@
 package pl.kamilsieczkowski.utils.checkers;
 
 import pl.kamilsieczkowski.game.Board;
-import pl.kamilsieczkowski.utils.Insert;
+import pl.kamilsieczkowski.utils.Inserter;
+
+import static pl.kamilsieczkowski.constants.Constants.CROSS;
+import static pl.kamilsieczkowski.constants.Texts.*;
 
 public class CheckerEasyLvl {
     protected boolean winOrLoseGameCondition;
-    protected Insert insert;
+    protected Inserter inserter;
     protected Board board;
 
-    public CheckerEasyLvl(Insert insert, Board board) {
-        this.insert = new Insert();
+    public CheckerEasyLvl(Inserter inserter, Board board) {
+        this.inserter = new Inserter();
         this.board = new Board();
     }
 
@@ -23,28 +26,28 @@ public class CheckerEasyLvl {
     public void winRequirementsCheck(char[] boardGame) {
         int turnCounter = 0;
         while (!winOrLoseGameCondition) {
-            boardGame = insideLoopHuman(boardGame, insert);
+            boardGame = insideLoopHuman(boardGame, inserter);
             winOrLoseGameCondition = multipleConditionsCheck(boardGame);
             turnCounter++;
             if (turnCounter == 9) break;
-            boardGame = insideLoopComputer(boardGame, insert);
+            boardGame = insideLoopComputer(boardGame, inserter);
             winOrLoseGameCondition = multipleConditionsCheck(boardGame);
             turnCounter++;
         }
-        System.out.println("Game Over");
+        System.out.println(GAME_OVER);
     }
 
     /**
      * all things done by human player in one of winRequirementCheck methods
      *
      * @param boardGame is an array with 9 characters used as board for game
-     * @param insert    invocation of Insert class to use one of Insert method
+     * @param inserter  invocation of Insert class to use one of Insert method
      * @return is an array with 9 characters used as board for game, after changes done by player
      */
-    char[] insideLoopHuman(char[] boardGame, Insert insert) {
-        boardGame = insert.insertCrosses(boardGame, 'X');
+    char[] insideLoopHuman(char[] boardGame, Inserter inserter) {
+        boardGame = inserter.insertCrosses(boardGame, CROSS);
         board.displayBoard(boardGame);
-        System.out.println("computer choose place, your turn:");
+        System.out.println(YOUR_TURN);
         return boardGame;
     }
 
@@ -52,11 +55,11 @@ public class CheckerEasyLvl {
      * all things done by computer player in one of winRequirementCheck method
      *
      * @param boardGame is an array with 9 characters used as board for game
-     * @param insert    invocation of Insert class to use one of Insert method
+     * @param inserter  invocation of Insert class to use one of Insert method
      * @return is an array with 9 characters used as board for game, after changes done by computer player
      */
-    char[] insideLoopComputer(char[] boardGame, Insert insert) {
-        boardGame = insert.computerOpponentInsertingCircles(boardGame);
+    char[] insideLoopComputer(char[] boardGame, Inserter inserter) {
+        boardGame = inserter.computerOpponentInsertingCircles(boardGame);
         board.displayBoard(boardGame);
         return boardGame;
     }
@@ -80,7 +83,7 @@ public class CheckerEasyLvl {
     }
 
     /**
-     * method prints comments of X or O player win.
+     * method prints comments of X or O player win and ends a game.
      *
      * @param positionOneOfBoard   - first of three positions of board
      * @param positionTwoOfBoard   - second of three positions of board
@@ -88,10 +91,12 @@ public class CheckerEasyLvl {
      * @param boardGame            - is an array with 9 characters used as board for game
      */
     void checkAWinner(int positionOneOfBoard, int positionTwoOfBoard, int positionThreeOfBoard, char[] boardGame) {
-        if (boardGame[positionOneOfBoard] == 'X' && boardGame[positionTwoOfBoard] == 'X' && boardGame[positionThreeOfBoard] == 'X') {
-            System.out.println("X wins!!!");
+        if (boardGame[positionOneOfBoard] == CROSS && boardGame[positionTwoOfBoard] == CROSS && boardGame[positionThreeOfBoard] == CROSS) {
+            System.out.println(X_WINS);
+            System.exit(0);
         } else {
-            System.out.println("O wins!!!");
+            System.out.println(O_WINS);
+            System.exit(0);
         }
     }
 

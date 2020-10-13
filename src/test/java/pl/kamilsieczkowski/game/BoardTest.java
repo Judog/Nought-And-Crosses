@@ -11,7 +11,6 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class BoardTest {
     private static Board board;
     private static char[] givenBoard;
-    private static Board mockedBoard;
     private static char[] boardForGame;
 
     @BeforeAll
@@ -19,7 +18,6 @@ public class BoardTest {
         boardForGame = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
         board = new Board();
         givenBoard = board.setStartBoard();
-        mockedBoard = Mockito.mock(Board.class);
     }
 
     @Test
@@ -43,11 +41,5 @@ public class BoardTest {
         for (int counter = 0; counter < 9; counter++) {
             elementOfBoardShouldBeChar(counter);
         }
-    }
-
-    @Test
-    public void givenDisplayBoardMethodWhenInvokedShouldReturnTrue() {
-        mockedBoard.displayBoard(boardForGame);
-        Mockito.verify(mockedBoard, Mockito.times(1)).displayBoard(boardForGame);
     }
 }

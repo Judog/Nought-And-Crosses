@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import pl.kamilsieczkowski.game.Board;
-import pl.kamilsieczkowski.utils.Inserter;
+import pl.kamilsieczkowski.utils.inserters.Inserter;
 
 public class CheckerHellLvlTest {
         private static CheckerHellLvl checkerHellLvll;

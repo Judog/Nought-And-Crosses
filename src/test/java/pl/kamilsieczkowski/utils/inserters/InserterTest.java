@@ -1,7 +1,8 @@
-package pl.kamilsieczkowski.utils;
+package pl.kamilsieczkowski.utils.inserters;
 
 import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
+import pl.kamilsieczkowski.utils.inserters.Inserter;
 
 import static pl.kamilsieczkowski.constants.Constants.CIRCLE;
 import static pl.kamilsieczkowski.constants.Constants.CROSS;
@@ -58,5 +59,13 @@ public class InserterTest {
         char[] shouldBeBoard = new char[]{'X', 'X', 'O', '4', '5', '6', '7', '8', '9'};
         char[] insertedBoard = inserter.computerOpponentInsertCirclesHellLvl(mockedBoard);
         Assertions.assertArrayEquals(shouldBeBoard, insertedBoard);
+    }
+    //END This!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    @Test
+    public void checkingSumOfCrossesOrCirclesTest(){
+        char[] mockedBoard = new char[]{'X', 'X', 'X', 'X', '5', '6', '7', '8', '9'};
+
+        int sumOfCrosses= inserter.checkingSumOfCrossesOrCircles(mockedBoard,CROSS);
+        Assertions.assertEquals(sumOfCrosses,4);
     }
 }

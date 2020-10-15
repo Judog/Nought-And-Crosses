@@ -1,7 +1,7 @@
 package pl.kamilsieczkowski.game.levels;
 
 import pl.kamilsieczkowski.game.Board;
-import pl.kamilsieczkowski.utils.Inserter;
+import pl.kamilsieczkowski.utils.inserters.Inserter;
 import pl.kamilsieczkowski.utils.checkers.CheckerMediumLvl;
 
 public class GameMedium extends GameEasy {

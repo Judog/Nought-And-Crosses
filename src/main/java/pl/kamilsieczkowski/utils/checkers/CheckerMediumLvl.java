@@ -1,7 +1,7 @@
 package pl.kamilsieczkowski.utils.checkers;
 
 import pl.kamilsieczkowski.game.Board;
-import pl.kamilsieczkowski.utils.Inserter;
+import pl.kamilsieczkowski.utils.inserters.Inserter;
 
 public class CheckerMediumLvl extends CheckerEasyLvl {
 
@@ -13,13 +13,13 @@ public class CheckerMediumLvl extends CheckerEasyLvl {
     /**
      * all things done by computer player in one of winRequirementCheck method
      *
-     * @param boardGame - is an array with 9 characters used as board for game
-     * @param inserter - invocation of Insert class to use one of Insert method
+     * @param boardGame         - is an array with 9 characters used as board for game
+     * @param inserter - invocation of InserterMediumLvl class to use one computerOpponentInsertsCircle Method
      * @return is an array with 9 characters used as board for game, after changes done by computer player
      */
     @Override
     char[] insideLoopComputer(char[] boardGame, Inserter inserter) {
-        boardGame = inserter.computerOpponentInsertCirclesMediumLvl(boardGame);
+        boardGame = inserter.computerOpponentInsertingCircleMediumLvl(boardGame);
         board.displayBoard(boardGame);
         return boardGame;
     }

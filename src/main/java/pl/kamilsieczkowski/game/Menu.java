@@ -4,7 +4,7 @@ import pl.kamilsieczkowski.game.levels.GameEasy;
 import pl.kamilsieczkowski.game.levels.GameHell;
 import pl.kamilsieczkowski.game.levels.GameMedium;
 import pl.kamilsieczkowski.game.levels.GameWithOtherPlayer;
-import pl.kamilsieczkowski.utils.Inserter;
+import pl.kamilsieczkowski.utils.inserters.Inserter;
 
 import java.util.Scanner;
 

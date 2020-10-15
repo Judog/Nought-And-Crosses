@@ -1,7 +1,7 @@
 package pl.kamilsieczkowski.utils.checkers;
 
 import pl.kamilsieczkowski.game.Board;
-import pl.kamilsieczkowski.utils.Inserter;
+import pl.kamilsieczkowski.utils.inserters.Inserter;
 
 import static pl.kamilsieczkowski.constants.Constants.CIRCLE;
 import static pl.kamilsieczkowski.constants.Constants.CROSS;

@@ -12,9 +12,9 @@ import static pl.kamilsieczkowski.constants.Constants.*;
 import static pl.kamilsieczkowski.constants.Texts.*;
 
 public class Menu {
-private Scanner scanner;
-private Board board;
-private Inserter inserter;
+    private Scanner scanner;
+    private Board board;
+    private Inserter inserter;
 
     public Menu(Board board, Inserter inserter) {
         this.board = board;

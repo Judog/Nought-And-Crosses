@@ -8,6 +8,7 @@ import org.mockito.Mockito;
 import pl.kamilsieczkowski.game.Board;
 import pl.kamilsieczkowski.utils.inserters.Inserter;
 
+import static pl.kamilsieczkowski.constants.Constants.CIRCLE;
 import static pl.kamilsieczkowski.constants.Constants.CROSS;
 
 public class CheckerTwoPlayersTest {
@@ -23,8 +24,8 @@ public class CheckerTwoPlayersTest {
     public static void setUp() {
         mockedInserter = Mockito.mock(Inserter.class);
         mockedBoard = Mockito.mock(Board.class);
-        checkerTwoPlayers= new CheckerTwoPlayers(mockedInserter, mockedBoard);
-        mockedCheckerTwoPlayers= Mockito.mock(CheckerTwoPlayers.class);
+        checkerTwoPlayers = new CheckerTwoPlayers(mockedInserter, mockedBoard);
+        mockedCheckerTwoPlayers = Mockito.mock(CheckerTwoPlayers.class);
         gameBoard = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
     }
 
@@ -32,12 +33,11 @@ public class CheckerTwoPlayersTest {
     public void invoke() {
         xBoard = new char[]{'X', '2', '3', '4', '5', '6', '7', '8', '9'};
         winBoard = new char[]{'X', 'X', 'X', '4', '5', '6', '7', '8', '9'};
-
+        Mockito.when(mockedInserter.insertCrosses(gameBoard, CROSS)).thenReturn(xBoard);
     }
 
     @Test
-    public void givenCrossToAddwhenInsideLoopHumanIsInvokedThenCrossIsAdded() {
-        Mockito.when(mockedInserter.insertCrosses(gameBoard, CROSS)).thenReturn(xBoard);
+    public void givenCrossToAddWhenInsideLoopHumanIsInvokedThenCrossIsAdded() {
         char[] test = checkerTwoPlayers.insideLoopHuman(gameBoard, mockedInserter, CROSS);
         Assertions.assertArrayEquals(test, xBoard);
     }

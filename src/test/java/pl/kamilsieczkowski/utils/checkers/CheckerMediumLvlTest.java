@@ -29,20 +29,23 @@ public class CheckerMediumLvlTest {
         xBoard = new char[]{'X', '2', '3', '4', '5', '6', '7', '8', '9'};
         winBoard = new char[]{'X', 'X', 'X', '4', '5', '6', '7', '8', '9'};
     }
+
     @Test
     public void givenCrossToAddWhenInsideLoopComputerIsInvokedThenCrossIsAdded() {
-        Mockito.when(mockedInserter.computerOpponentInsertCirclesMediumLvl(gameBoard)).thenReturn(xBoard);
+        Mockito.when(mockedInserter.computerOpponentInsertingCircleMediumLvl(gameBoard)).thenReturn(xBoard);
         char[] test = checkerMediumLvl.insideLoopComputer(gameBoard, mockedInserter);
         Assertions.assertArrayEquals(test, xBoard);
     }
+
     @Test
     public void givenThreeXWhenComputerCheckMediumIsInvokedThenReturnTrue() {
-      boolean computerCheckMediumTrue = checkerMediumLvl.computerCheckMedium('X','X','X');
+        boolean computerCheckMediumTrue = checkerMediumLvl.computerCheckMedium('X', 'X', 'X');
         Assertions.assertTrue(computerCheckMediumTrue);
     }
+
     @Test
     public void givenThreeDifferentCharsWhenComputerCheckMediumIsInvokedThenReturnTrue() {
-        boolean computerCheckMediumFalse = checkerMediumLvl.computerCheckMedium('X','O','X');
+        boolean computerCheckMediumFalse = checkerMediumLvl.computerCheckMedium('X', 'O', 'X');
         Assertions.assertFalse(computerCheckMediumFalse);
     }
 }

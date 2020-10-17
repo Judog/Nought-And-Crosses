@@ -13,8 +13,8 @@ public class CheckerMediumLvl extends CheckerEasyLvl {
     /**
      * all things done by computer player in one of winRequirementCheck method
      *
-     * @param boardGame         - is an array with 9 characters used as board for game
-     * @param inserter - invocation of InserterMediumLvl class to use one computerOpponentInsertsCircle Method
+     * @param boardGame - is an array with 9 characters used as board for game
+     * @param inserter  - invocation of InserterMediumLvl class to use one computerOpponentInsertsCircle Method
      * @return is an array with 9 characters used as board for game, after changes done by computer player
      */
     @Override

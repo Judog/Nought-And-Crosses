@@ -11,9 +11,9 @@ public class CheckerHellLvl extends CheckerMediumLvl {
     /**
      * all things done by computer player in winRequirementCheckHell method
      *
-     * @param boardGame is an array with 9 characters used as board for game
-     * @param inserter    invocation of InserterHellLvl class to use one of Insert method
-     * @return is array with 9 characters used as board for game, after changes done by computer player
+     * @param boardGame - is an array with 9 characters used as board for game
+     * @param inserter  -  invocation of InserterHellLvl class to use one of Insert method
+     * @return - is array with 9 characters used as board for game, after changes done by computer player
      */
 
     char[] insideLoopComputer(char[] boardGame, Inserter inserter) {

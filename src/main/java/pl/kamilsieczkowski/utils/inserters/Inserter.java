@@ -70,155 +70,14 @@ public class Inserter {
     }
 
     /**
-     * medium Lvl
+     * sum of all methods of computers turn on medium level
      *
-     * @param gameBoard- is an array with 9 characters used as gameBoard for game
-     * @return - is an array with inserted circle by computer
+     * @param gameBoard - is an array with 9 characters used as board for game
+     * @return - board after computers turn, on Hell Level
      */
-    public char[] computerOpponentInsertCirclesMediumLvl(char[] gameBoard) {
-        Inserter inserter = new Inserter();
-        Board board = new Board();
-        CheckerMediumLvl checker = new CheckerMediumLvl(inserter, board);
-        char a1 = gameBoard[0];
-        char a2 = gameBoard[1];
-        char a3 = gameBoard[2];
-        char b1 = gameBoard[3];
-        char b2 = gameBoard[4];
-        char b3 = gameBoard[5];
-        char c1 = gameBoard[6];
-        char c2 = gameBoard[7];
-        char c3 = gameBoard[8];
-        if (checker.computerCheckMedium(a1, a2, CIRCLE) && gameBoard[2] != CROSS && gameBoard[2] != CIRCLE) {
-            gameBoard[2] = CIRCLE;
-        } else if (checker.computerCheckMedium(a2, a3, CIRCLE) && gameBoard[0] != CROSS && gameBoard[0] != CIRCLE) {
-            gameBoard[0] = CIRCLE;
-        } else if (checker.computerCheckMedium(a1, a3, CIRCLE) && gameBoard[1] != CROSS && gameBoard[1] != CIRCLE) {
-            gameBoard[1] = CIRCLE;
-        } else if (checker.computerCheckMedium(b1, b2, CIRCLE) && gameBoard[5] != CROSS && gameBoard[5] != CIRCLE) {
-            gameBoard[5] = CIRCLE;
-        } else if (checker.computerCheckMedium(b2, b3, CIRCLE) && gameBoard[3] != CROSS && gameBoard[3] != CIRCLE) {
-            gameBoard[3] = CIRCLE;
-        } else if (checker.computerCheckMedium(b1, b3, CIRCLE) && gameBoard[4] != CROSS && gameBoard[4] != CIRCLE) {
-            gameBoard[4] = CIRCLE;
-        } else if (checker.computerCheckMedium(c1, c2, CIRCLE) && gameBoard[8] != CROSS && gameBoard[8] != CIRCLE) {
-            gameBoard[8] = CIRCLE;
-        } else if (checker.computerCheckMedium(c2, c3, CIRCLE) && gameBoard[6] != CROSS && gameBoard[6] != CIRCLE) {
-            gameBoard[6] = CIRCLE;
-        } else if (checker.computerCheckMedium(c1, c3, CIRCLE) && gameBoard[7] != CROSS && gameBoard[7] != CIRCLE) {
-            gameBoard[7] = CIRCLE;
-        } else if (checker.computerCheckMedium(a1, b1, CIRCLE) && gameBoard[6] != CROSS && gameBoard[6] != CIRCLE) {
-            gameBoard[6] = CIRCLE;
-        } else if (checker.computerCheckMedium(c1, b1, CIRCLE) && gameBoard[0] != CROSS && gameBoard[0] != CIRCLE) {
-            gameBoard[0] = CIRCLE;
-        } else if (checker.computerCheckMedium(c1, a1, CIRCLE) && gameBoard[3] != CROSS && gameBoard[3] != CIRCLE) {
-            gameBoard[3] = CIRCLE;
-        } else if (checker.computerCheckMedium(a2, b2, CIRCLE) && gameBoard[7] != CROSS && gameBoard[7] != CIRCLE) {
-            gameBoard[7] = CIRCLE;
-        } else if (checker.computerCheckMedium(a2, c2, CIRCLE) && gameBoard[4] != CROSS && gameBoard[4] != CIRCLE) {
-            gameBoard[4] = CIRCLE;
-        } else if (checker.computerCheckMedium(b2, c2, CIRCLE) && gameBoard[1] != CROSS && gameBoard[1] != CIRCLE) {
-            gameBoard[1] = CIRCLE;
-        } else if (checker.computerCheckMedium(a3, b3, CIRCLE) && gameBoard[8] != CROSS && gameBoard[8] != CIRCLE) {
-            gameBoard[8] = CIRCLE;
-        } else if (checker.computerCheckMedium(a3, c3, CIRCLE) && gameBoard[5] != CROSS && gameBoard[5] != CIRCLE) {
-            gameBoard[5] = CIRCLE;
-        } else if (checker.computerCheckMedium(b3, c3, CIRCLE) && gameBoard[2] != CROSS && gameBoard[2] != CIRCLE) {
-            gameBoard[2] = CIRCLE;
-        } else if (checker.computerCheckMedium(a1, b2, CIRCLE) && gameBoard[8] != CROSS && gameBoard[8] != CIRCLE) {
-            gameBoard[8] = CIRCLE;
-        } else if (checker.computerCheckMedium(c3, b2, CIRCLE) && gameBoard[0] != CROSS && gameBoard[0] != CIRCLE) {
-            gameBoard[0] = CIRCLE;
-        } else if (checker.computerCheckMedium(c3, a1, CIRCLE) && gameBoard[4] != CROSS && gameBoard[4] != CIRCLE) {
-            gameBoard[4] = CIRCLE;
-        } else if (checker.computerCheckMedium(a3, b2, CIRCLE) && gameBoard[6] != CROSS && gameBoard[6] != CIRCLE) {
-            gameBoard[6] = CIRCLE;
-        } else if (checker.computerCheckMedium(c1, b2, CIRCLE) && gameBoard[2] != CROSS && gameBoard[2] != CIRCLE) {
-            gameBoard[2] = CIRCLE;
-        } else if (checker.computerCheckMedium(c1, a3, CIRCLE) && gameBoard[4] != CROSS && gameBoard[4] != CIRCLE) {
-            gameBoard[4] = CIRCLE;
-        } else {
-            gameBoard = computerOpponentInsertingCircles(gameBoard);
-        }
-        return gameBoard;
-    }
-
-    /**
-     * Hell Lvl
-     *
-     * @param gameBoard- is an array with 9 characters used as gameBoard for game
-     * @return - is an array with inserted circle by computer
-     */
-    public char[] computerOpponentInsertCirclesHellLvl(char[] gameBoard) {
-        Inserter inserter = new Inserter();
-        Board board = new Board();
-        CheckerMediumLvl checker = new CheckerMediumLvl(inserter, board);
-        char a1 = gameBoard[0];
-        char a2 = gameBoard[1];
-        char a3 = gameBoard[2];
-        char b1 = gameBoard[3];
-        char b2 = gameBoard[4];
-        char b3 = gameBoard[5];
-        char c1 = gameBoard[6];
-        char c2 = gameBoard[7];
-        char c3 = gameBoard[8];
-        if (checker.computerCheckMedium(a1, a2, CROSS) && gameBoard[2] != CROSS && gameBoard[2] != CIRCLE) {
-            gameBoard[2] = CIRCLE;
-        } else if (checker.computerCheckMedium(a2, a3, CROSS) && gameBoard[0] != CROSS && gameBoard[0] != CIRCLE) {
-            gameBoard[0] = CIRCLE;
-        } else if (checker.computerCheckMedium(a1, a3, CROSS) && gameBoard[1] != CROSS && gameBoard[1] != CIRCLE) {
-            gameBoard[1] = CIRCLE;
-        } else if (checker.computerCheckMedium(b1, b2, CROSS) && gameBoard[5] != CROSS && gameBoard[5] != CIRCLE) {
-            gameBoard[5] = CIRCLE;
-        } else if (checker.computerCheckMedium(b2, b3, CROSS) && gameBoard[3] != CROSS && gameBoard[3] != CIRCLE) {
-            gameBoard[3] = CIRCLE;
-        } else if (checker.computerCheckMedium(b1, b3, CROSS) && gameBoard[4] != CROSS && gameBoard[4] != CIRCLE) {
-            gameBoard[4] = CIRCLE;
-        } else if (checker.computerCheckMedium(c1, c2, CROSS) && gameBoard[8] != CROSS && gameBoard[8] != CIRCLE) {
-            gameBoard[8] = CIRCLE;
-        } else if (checker.computerCheckMedium(c2, c3, CROSS) && gameBoard[6] != CROSS && gameBoard[6] != CIRCLE) {
-            gameBoard[6] = CIRCLE;
-        } else if (checker.computerCheckMedium(c1, c3, CROSS) && gameBoard[7] != CROSS && gameBoard[7] != CIRCLE) {
-            gameBoard[7] = CIRCLE;
-        } else if (checker.computerCheckMedium(a1, b1, CROSS) && gameBoard[6] != CROSS && gameBoard[6] != CIRCLE) {
-            gameBoard[6] = CIRCLE;
-        } else if (checker.computerCheckMedium(c1, b1, CROSS) && gameBoard[0] != CROSS && gameBoard[0] != CIRCLE) {
-            gameBoard[0] = CIRCLE;
-        } else if (checker.computerCheckMedium(c1, a1, CROSS) && gameBoard[3] != CROSS && gameBoard[3] != CIRCLE) {
-            gameBoard[3] = CIRCLE;
-        } else if (checker.computerCheckMedium(a2, b2, CROSS) && gameBoard[7] != CROSS && gameBoard[7] != CIRCLE) {
-            gameBoard[7] = CIRCLE;
-        } else if (checker.computerCheckMedium(a2, c2, CROSS) && gameBoard[4] != CROSS && gameBoard[4] != CIRCLE) {
-            gameBoard[4] = CIRCLE;
-        } else if (checker.computerCheckMedium(b2, c2, CROSS) && gameBoard[1] != CROSS && gameBoard[1] != CIRCLE) {
-            gameBoard[1] = CIRCLE;
-        } else if (checker.computerCheckMedium(a3, b3, CROSS) && gameBoard[8] != CROSS && gameBoard[8] != CIRCLE) {
-            gameBoard[8] = CIRCLE;
-        } else if (checker.computerCheckMedium(a3, c3, CROSS) && gameBoard[5] != CROSS && gameBoard[5] != CIRCLE) {
-            gameBoard[5] = CIRCLE;
-        } else if (checker.computerCheckMedium(b3, c3, CROSS) && gameBoard[2] != CROSS && gameBoard[2] != CIRCLE) {
-            gameBoard[2] = CIRCLE;
-        } else if (checker.computerCheckMedium(a1, b2, CROSS) && gameBoard[8] != CROSS && gameBoard[8] != CIRCLE) {
-            gameBoard[8] = CIRCLE;
-        } else if (checker.computerCheckMedium(c3, b2, CROSS) && gameBoard[0] != CROSS && gameBoard[0] != CIRCLE) {
-            gameBoard[0] = CIRCLE;
-        } else if (checker.computerCheckMedium(c3, a1, CROSS) && gameBoard[4] != CROSS && gameBoard[4] != CIRCLE) {
-            gameBoard[4] = CIRCLE;
-        } else if (checker.computerCheckMedium(a3, b2, CROSS) && gameBoard[6] != CROSS && gameBoard[6] != CIRCLE) {
-            gameBoard[6] = CIRCLE;
-        } else if (checker.computerCheckMedium(c1, b2, CROSS) && gameBoard[2] != CROSS && gameBoard[2] != CIRCLE) {
-            gameBoard[2] = CIRCLE;
-        } else if (checker.computerCheckMedium(c1, a3, CROSS) && gameBoard[4] != CROSS && gameBoard[4] != CIRCLE) {
-            gameBoard[4] = CIRCLE;
-        } else {
-            gameBoard = computerOpponentInsertCirclesMediumLvl(gameBoard);
-        }
-        return gameBoard;
-    }
-
     public char[] computerOpponentInsertingCircleMediumLvl(char[] gameBoard) {
-        Board board = new Board();
         int sumOfCirclesOnEnteredBoard = checkingSumOfCrossesOrCircles(gameBoard, CIRCLE);
-        char[] changedGameBoard = computerOpponentAI(board, CIRCLE, gameBoard);
+        char[] changedGameBoard = computerOpponentAI(CIRCLE, gameBoard);
         int sumOfCirclesOnChangedBoard = checkingSumOfCrossesOrCircles(changedGameBoard, CIRCLE);
         if (sumOfCirclesOnEnteredBoard != sumOfCirclesOnChangedBoard) {
             gameBoard = changedGameBoard;
@@ -228,12 +87,17 @@ public class Inserter {
         return gameBoard;
     }
 
+    /**
+     * sum of all methods of compters turn on hell level
+     *
+     * @param gameBoard - is an array with 9 characters used as board for game
+     * @return - board after computers turn, on Hell Level
+     */
     public char[] computerOpponentInsertingCircleHellLvl(char[] gameBoard) {
-        Board board = new Board();
         int sumOfCirclesOnEnteredBoard = checkingSumOfCrossesOrCircles(gameBoard, CIRCLE);
-        char[] changedGameBoard = computerOpponentAI(board, CIRCLE, gameBoard);
+        char[] changedGameBoard = computerOpponentAI(CIRCLE, gameBoard);
         int sumOfCirclesOnChangedBoard = checkingSumOfCrossesOrCircles(changedGameBoard, CIRCLE);
-        char[] secondChangedGameBoard = computerOpponentAI(board, CROSS, gameBoard);
+        char[] secondChangedGameBoard = computerOpponentAI(CROSS, gameBoard);
         int sumOfCirclesOnSecondChangedBoard = checkingSumOfCrossesOrCircles(secondChangedGameBoard, CIRCLE);
         if (sumOfCirclesOnChangedBoard != sumOfCirclesOnEnteredBoard) {
             gameBoard = changedGameBoard;
@@ -245,6 +109,11 @@ public class Inserter {
         return gameBoard;
     }
 
+    /**
+     * @param boardGame     - is an array with 9 characters used as board for game
+     * @param crossOrCircle - symbol counted on gameBoard
+     * @return - number of crossOrCircle characters in boardGame
+     */
     int checkingSumOfCrossesOrCircles(char[] boardGame, char crossOrCircle) {
         int numberOfCrossesOrCircles = 0;
         for (char elementOfBoard : boardGame) {
@@ -253,7 +122,15 @@ public class Inserter {
         return numberOfCrossesOrCircles;
     }
 
-    char[] computerOpponentAI(Board board, char crossOrCircle, char[] gameBoard) {
+    /**
+     * method responsible of adding CIRCLEs to gameBoard on medium or Hell level
+     *
+     * @param crossOrCircle - symbol needed to special responsible of method (Circle - blocking, CROSS - trying to end game)
+     * @param gameBoard     - is an array with 9 characters used as board for game
+     * @return - board with Computers turn
+     */
+    char[] computerOpponentAI(char crossOrCircle, char[] gameBoard) {
+        Board board = new Board();
         Inserter inserter = new Inserter();
         CheckerMediumLvl checker = new CheckerMediumLvl(inserter, board);
         char a1 = gameBoard[0];

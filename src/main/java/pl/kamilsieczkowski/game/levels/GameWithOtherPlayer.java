@@ -5,7 +5,7 @@ import pl.kamilsieczkowski.utils.inserters.Inserter;
 import pl.kamilsieczkowski.utils.checkers.CheckerTwoPlayers;
 
 
-public class GameWithOtherPlayer extends GameEasy {
+public class GameWithOtherPlayer extends Game {
 
 
     public GameWithOtherPlayer(char[] boardGame, Board board, Inserter inserter) {
@@ -16,9 +16,9 @@ public class GameWithOtherPlayer extends GameEasy {
      * Starts game with other player from Menu
      */
     @Override
-    public void playGame() {
+    public void playGame(String levels) {
         CheckerTwoPlayers checkerTwoPlayers = new CheckerTwoPlayers(inserter, board);
         board.displayBoard(boardGame);
-        checkerTwoPlayers.winRequirementsCheck(boardGame);
+        checkerTwoPlayers.winRequirementsCheck(levels, boardGame);
     }
 }

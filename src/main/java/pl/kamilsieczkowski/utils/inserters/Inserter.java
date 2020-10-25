@@ -1,7 +1,7 @@
 package pl.kamilsieczkowski.utils.inserters;
 
 import pl.kamilsieczkowski.game.Board;
-import pl.kamilsieczkowski.utils.checkers.CheckerMediumLvl;
+import pl.kamilsieczkowski.utils.checkers.Checker;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -132,7 +132,7 @@ public class Inserter {
     char[] computerOpponentAI(char crossOrCircle, char[] gameBoard) {
         Board board = new Board();
         Inserter inserter = new Inserter();
-        CheckerMediumLvl checker = new CheckerMediumLvl(inserter, board);
+        Checker checker = new Checker(inserter, board);
         char a1 = gameBoard[0];
         char a2 = gameBoard[1];
         char a3 = gameBoard[2];

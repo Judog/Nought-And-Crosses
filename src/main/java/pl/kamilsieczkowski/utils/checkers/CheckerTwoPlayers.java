@@ -7,7 +7,7 @@ import static pl.kamilsieczkowski.constants.Constants.CIRCLE;
 import static pl.kamilsieczkowski.constants.Constants.CROSS;
 import static pl.kamilsieczkowski.constants.Texts.*;
 
-public class CheckerTwoPlayers extends CheckerEasyLvl {
+public class CheckerTwoPlayers extends Checker {
     public CheckerTwoPlayers(Inserter inserter, Board board) {
         super(inserter, board);
     }
@@ -20,7 +20,7 @@ public class CheckerTwoPlayers extends CheckerEasyLvl {
      * @param boardGame - is an array with 9 characters used as board for game
      */
     @Override
-    public void winRequirementsCheck(char[] boardGame) {
+    public void winRequirementsCheck(String level, char[] boardGame) {
         int turnCounter = 0;
         while (!winOrLoseGameCondition) {
             insideLoopHuman(boardGame, inserter, CROSS);

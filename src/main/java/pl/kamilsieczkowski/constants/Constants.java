@@ -19,4 +19,8 @@ public class Constants {
     public static int EIGHT = 8;
     public static int NINE = 9;
     public static int ZERO = 0;
+    public static final String EASY = "Easy";
+    public static final String MEDIUM = "Medium";
+    public static final String HELL = "Hell";
+    public static final String TWO_PLAYERS = "Two Players";
 }

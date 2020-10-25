@@ -1,8 +1,6 @@
 package pl.kamilsieczkowski.game;
 
-import pl.kamilsieczkowski.game.levels.GameEasy;
-import pl.kamilsieczkowski.game.levels.GameHell;
-import pl.kamilsieczkowski.game.levels.GameMedium;
+import pl.kamilsieczkowski.game.levels.Game;
 import pl.kamilsieczkowski.game.levels.GameWithOtherPlayer;
 import pl.kamilsieczkowski.utils.inserters.Inserter;
 
@@ -34,7 +32,7 @@ public class Menu {
             displayPlayWithComputer();
         } else if (insert == TWO) {
             GameWithOtherPlayer gameWithOtherPlayer = new GameWithOtherPlayer(board.setStartBoard(), board, inserter);
-            gameWithOtherPlayer.playGame();
+            gameWithOtherPlayer.playGame(TWO_PLAYERS);
         } else if (insert == THREE) {
             System.exit(0);
         } else {
@@ -47,19 +45,16 @@ public class Menu {
      * displays menu to start game with computer
      */
     void displayPlayWithComputer() {
+        Game game = new Game(board.setStartBoard(), board, inserter);
         System.out.println(EASY_MODE);
         System.out.println(MEDIUM_MODE);
         System.out.println(HELL_MODE);
         int insert = scanner.nextInt();
         if (insert == ONE) {
-            GameEasy gameEasy = new GameEasy(board.setStartBoard(), board, inserter);
-            gameEasy.playGame();
         } else if (insert == TWO) {
-            GameMedium gameMedium = new GameMedium(board.setStartBoard(), board, inserter);
-            gameMedium.playGame();
+            game.playGame(MEDIUM);
         } else if (insert == THREE) {
-            GameHell gameHell = new GameHell(board.setStartBoard(), board, inserter);
-            gameHell.playGame();
+            game.playGame(HELL);
         } else {
             System.out.println(NUMBER_FROM_1_TO_3);
             displayPlayWithComputer();

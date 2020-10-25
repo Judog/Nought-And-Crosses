@@ -2,14 +2,14 @@ package pl.kamilsieczkowski.game.levels;
 
 import pl.kamilsieczkowski.game.Board;
 import pl.kamilsieczkowski.utils.inserters.Inserter;
-import pl.kamilsieczkowski.utils.checkers.CheckerEasyLvl;
+import pl.kamilsieczkowski.utils.checkers.Checker;
 
-public class GameEasy {
+public class Game {
     protected char[] boardGame;
     protected Board board;
     protected Inserter inserter;
 
-    public GameEasy(char[] boardGame, Board board, Inserter inserter) {
+    public Game(char[] boardGame, Board board, Inserter inserter) {
         this.boardGame = boardGame;
         this.board = board;
         this.inserter = inserter;
@@ -18,9 +18,9 @@ public class GameEasy {
     /**
      * Starts game on easy lvl from Menu
      */
-    public void playGame() {
-        CheckerEasyLvl checker = new CheckerEasyLvl(inserter, board);
+    public void playGame(String level) {
+        Checker checker = new Checker(inserter, board);
         board.displayBoard(boardGame);
-        checker.winRequirementsCheck(boardGame);
+        checker.winRequirementsCheck(level, boardGame);
     }
 }

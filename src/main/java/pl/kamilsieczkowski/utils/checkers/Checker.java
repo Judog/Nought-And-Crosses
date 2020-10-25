@@ -6,12 +6,12 @@ import pl.kamilsieczkowski.utils.inserters.Inserter;
 import static pl.kamilsieczkowski.constants.Constants.CROSS;
 import static pl.kamilsieczkowski.constants.Texts.*;
 
-public class CheckerEasyLvl {
+public class Checker {
     protected boolean winOrLoseGameCondition;
     protected Inserter inserter;
     protected Board board;
 
-    public CheckerEasyLvl(Inserter inserter, Board board) {
+    public Checker(Inserter inserter, Board board) {
         this.inserter = new Inserter();
         this.board = new Board();
     }
@@ -23,14 +23,14 @@ public class CheckerEasyLvl {
      *
      * @param boardGame - is an array with 9 characters used as board for game
      */
-    public void winRequirementsCheck(char[] boardGame) {
+    public void winRequirementsCheck(String level, char[] boardGame) {
         int turnCounter = 0;
         while (!winOrLoseGameCondition) {
             boardGame = insideLoopHuman(boardGame, inserter);
             winOrLoseGameCondition = multipleConditionsCheck(boardGame);
             turnCounter++;
             if (turnCounter == 9) break;
-            boardGame = insideLoopComputer(boardGame, inserter);
+            boardGame = insideLoopComputer(level, boardGame, inserter);
             winOrLoseGameCondition = multipleConditionsCheck(boardGame);
             turnCounter++;
         }
@@ -58,8 +58,14 @@ public class CheckerEasyLvl {
      * @param inserter  invocation of Insert class to use one of Insert method
      * @return is an array with 9 characters used as board for game, after changes done by computer player
      */
-    char[] insideLoopComputer(char[] boardGame, Inserter inserter) {
-        boardGame = inserter.computerOpponentInsertingCircles(boardGame);
+    char[] insideLoopComputer(String level, char[] boardGame, Inserter inserter) {
+        if (level.equals("Easy")) {
+            boardGame = inserter.computerOpponentInsertingCircles(boardGame);
+        } else if (level.equals("Medium")) {
+            boardGame = inserter.computerOpponentInsertingCircleMediumLvl(boardGame);
+        } else {
+            boardGame = inserter.computerOpponentInsertingCircleHellLvl(boardGame);
+        }
         board.displayBoard(boardGame);
         return boardGame;
     }
@@ -125,6 +131,16 @@ public class CheckerEasyLvl {
             }
         }
         return multipleConditionChecker;
+    }
+
+    /**
+     * @param one   - first char
+     * @param two   - second char
+     * @param three - third char
+     * @return boolean condition one==two==three
+     */
+    public boolean computerCheckMedium(char one, char two, char three) {
+        return one == two && two == three;
     }
 
 }

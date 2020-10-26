@@ -22,30 +22,30 @@ public class Menu {
     /**
      * displays menu
      */
-    public void displayMenu() {
+    public void displayMenu(GameWithOtherPlayer gameWithOtherPlayer) {
+        Game game = new Game(board.setStartBoard(), board, inserter);
         scanner = new Scanner(System.in);
         System.out.println(PLAY_WITH_COMPUTER);
         System.out.println(PLAY_WITH_OTHER_PERSON);
         System.out.println(EXIT);
         int insert = scanner.nextInt();
         if (insert == ONE) {
-            displayPlayWithComputer();
+            displayPlayWithComputer(game);
         } else if (insert == TWO) {
-            GameWithOtherPlayer gameWithOtherPlayer = new GameWithOtherPlayer(board.setStartBoard(), board, inserter);
             gameWithOtherPlayer.playGame();
         } else if (insert == THREE) {
             System.exit(0);
         } else {
             System.out.println(NUMBER_FROM_1_TO_3);
-            displayMenu();
+            displayMenu(gameWithOtherPlayer);
         }
     }
 
     /**
      * displays menu to start game with computer
      */
-    void displayPlayWithComputer() {
-        Game game = new Game(board.setStartBoard(), board, inserter);
+    void displayPlayWithComputer(Game game) {
+
         System.out.println(EASY_MODE);
         System.out.println(MEDIUM_MODE);
         System.out.println(HELL_MODE);
@@ -57,7 +57,7 @@ public class Menu {
             game.playGame(HELL);
         } else {
             System.out.println(NUMBER_FROM_1_TO_3);
-            displayPlayWithComputer();
+            displayPlayWithComputer(game);
         }
     }
 }

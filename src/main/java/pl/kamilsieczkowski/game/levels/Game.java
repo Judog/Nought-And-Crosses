@@ -17,6 +17,7 @@ public class Game {
 
     /**
      * Starts game on easy lvl from Menu
+     * @param level - level of computer player
      */
     public void playGame(String level) {
         Checker checker = new Checker(inserter, board);

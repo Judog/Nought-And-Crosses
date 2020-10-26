@@ -32,7 +32,7 @@ public class Menu {
             displayPlayWithComputer();
         } else if (insert == TWO) {
             GameWithOtherPlayer gameWithOtherPlayer = new GameWithOtherPlayer(board.setStartBoard(), board, inserter);
-            gameWithOtherPlayer.playGame(TWO_PLAYERS);
+            gameWithOtherPlayer.playGame();
         } else if (insert == THREE) {
             System.exit(0);
         } else {

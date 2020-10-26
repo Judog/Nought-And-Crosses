@@ -21,16 +21,17 @@ public class Checker {
      * implements methods of human and computer, that methods inserting circles and crosses
      * break is for statement when nobody wins.
      *
+     * @param level     - level of computer player
      * @param boardGame - is an array with 9 characters used as board for game
      */
     public void winRequirementsCheck(String level, char[] boardGame) {
         int turnCounter = 0;
         while (!winOrLoseGameCondition) {
-            boardGame = insideLoopHuman(boardGame, inserter);
+            boardGame = humanTurn(boardGame, inserter);
             winOrLoseGameCondition = multipleConditionsCheck(boardGame);
             turnCounter++;
             if (turnCounter == 9) break;
-            boardGame = insideLoopComputer(level, boardGame, inserter);
+            boardGame = computerTurn(level, boardGame, inserter);
             winOrLoseGameCondition = multipleConditionsCheck(boardGame);
             turnCounter++;
         }
@@ -44,7 +45,7 @@ public class Checker {
      * @param inserter  invocation of Insert class to use one of Insert method
      * @return is an array with 9 characters used as board for game, after changes done by player
      */
-    char[] insideLoopHuman(char[] boardGame, Inserter inserter) {
+    char[] humanTurn(char[] boardGame, Inserter inserter) {
         boardGame = inserter.insertCrosses(boardGame, CROSS);
         board.displayBoard(boardGame);
         System.out.println(YOUR_TURN);
@@ -58,7 +59,7 @@ public class Checker {
      * @param inserter  invocation of Insert class to use one of Insert method
      * @return is an array with 9 characters used as board for game, after changes done by computer player
      */
-    char[] insideLoopComputer(String level, char[] boardGame, Inserter inserter) {
+    char[] computerTurn(String level, char[] boardGame, Inserter inserter) {
         if (level.equals("Easy")) {
             boardGame = inserter.computerOpponentInsertingCircles(boardGame);
         } else if (level.equals("Medium")) {

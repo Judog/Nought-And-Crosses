@@ -35,16 +35,16 @@ public class CheckerTest {
     }
 
     @Test
-    public void givenCrossToAddwhenInsideLoopHumanIsInvokedThenCrossIsAdded() {
+    public void givenCrossToAddWhenInsideLoopHumanIsInvokedThenCrossIsAdded() {
         Mockito.when(mockedInserter.insertCrosses(gameBoard, CROSS)).thenReturn(xBoard);
-        char[] test = checker.insideLoopHuman(gameBoard, mockedInserter);
+        char[] test = checker.humanTurn(gameBoard, mockedInserter);
         Assertions.assertArrayEquals(test, xBoard);
     }
 
     @Test
-    public void givenCrossToAddwhenInsideLoopComputerIsInvokedThenCrossIsAdded() {
+    public void givenCrossToAddOnEasyLvlWhenInsideLoopComputerIsInvokedThenCrossIsAdded() {
         Mockito.when(mockedInserter.computerOpponentInsertingCircles(gameBoard)).thenReturn(xBoard);
-        char[] test = checker.insideLoopComputer(EASY, gameBoard, mockedInserter);
+        char[] test = checker.computerTurn(EASY, gameBoard, mockedInserter);
         Assertions.assertArrayEquals(test, xBoard);
     }
 
@@ -53,7 +53,6 @@ public class CheckerTest {
         boolean win = checker.conditionsCheck(1, 2, 3, gameBoard);
         Assertions.assertFalse(win);
     }
-
 
     @Test
     public void givenBoardWhenMultipleConditionsCheckIsInvokedThenReturnFalse() {
@@ -64,7 +63,7 @@ public class CheckerTest {
     @Test
     public void givenCrossToAddWhenInsideLoopComputerIsInvokedThenCrossIsAdded() {
         Mockito.when(mockedInserter.computerOpponentInsertingCircleMediumLvl(gameBoard)).thenReturn(xBoard);
-        char[] test = checker.insideLoopComputer(MEDIUM, gameBoard, mockedInserter);
+        char[] test = checker.computerTurn(MEDIUM, gameBoard, mockedInserter);
         Assertions.assertArrayEquals(test, xBoard);
     }
 
@@ -83,7 +82,7 @@ public class CheckerTest {
     @Test
     public void givenCrossToAddWhenInsideLoopComputerIsInvokedThenCrossIsAddedHell() {
         Mockito.when(mockedInserter.computerOpponentInsertingCircleHellLvl(gameBoard)).thenReturn(xBoard);
-        char[] test = checker.insideLoopComputer(HELL, gameBoard, mockedInserter);
+        char[] test = checker.computerTurn(HELL, gameBoard, mockedInserter);
         Assertions.assertArrayEquals(test, xBoard);
     }
 }

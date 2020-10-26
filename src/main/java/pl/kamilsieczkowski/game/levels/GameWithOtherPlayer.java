@@ -15,10 +15,9 @@ public class GameWithOtherPlayer extends Game {
     /**
      * Starts game with other player from Menu
      */
-    @Override
-    public void playGame(String levels) {
+    public void playGame() {
         CheckerTwoPlayers checkerTwoPlayers = new CheckerTwoPlayers(inserter, board);
         board.displayBoard(boardGame);
-        checkerTwoPlayers.winRequirementsCheck(levels, boardGame);
+        checkerTwoPlayers.winRequirementsCheck(boardGame);
     }
 }

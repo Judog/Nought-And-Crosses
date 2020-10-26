@@ -19,8 +19,7 @@ public class CheckerTwoPlayers extends Checker {
      *
      * @param boardGame - is an array with 9 characters used as board for game
      */
-    @Override
-    public void winRequirementsCheck(String level, char[] boardGame) {
+    public void winRequirementsCheck(char[] boardGame) {
         int turnCounter = 0;
         while (!winOrLoseGameCondition) {
             insideLoopHuman(boardGame, inserter, CROSS);
